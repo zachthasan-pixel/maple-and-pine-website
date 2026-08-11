@@ -24,6 +24,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <Link to="/about" activeProps={{ className: "active" }}>
               About
             </Link>
+            <Link to="/beyond-the-press" activeProps={{ className: "active" }}>
+              Beyond
+            </Link>
             <Link to="/submissions" activeProps={{ className: "active" }}>
               Submissions
             </Link>
@@ -54,6 +57,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <h5>Press</h5>
               <Link to="/about">About Us</Link>
               <Link to="/submissions">Submissions</Link>
+              <Link to="/beyond-the-press">Beyond the Press</Link>
               <Link to="/">Newsletter</Link>
             </div>
             <div>
