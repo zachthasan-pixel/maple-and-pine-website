@@ -9,7 +9,7 @@ export const Route = createFileRoute("/beyond-the-press")({
       {
         name: "description",
         content:
-          "Other projects from Dr. Zahir Hasan: Movement for Action, Discoverly, and Foldbird.",
+          "Other projects from Dr. Zahir Hasan: Movement for Action, Discoverly, BookVoice, and Foldbird.",
       },
     ],
   }),
@@ -34,6 +34,15 @@ const PROJECTS = [
       "A platform that helps independent and academic authors get their books discovered: it analyzes and improves listings on Amazon, Apple, and Google, and helps authors build a direct readership.",
     initials: "D",
     tint: "#8c2f22",
+  },
+  {
+    name: "BookVoice",
+    url: "https://bookvoice-studio.netlify.app",
+    tag: "Audiobooks",
+    blurb:
+      "A studio for independent authors that turns a finished manuscript into a professionally narrated audiobook in an afternoon: no recording studio, no narrator fee, no technical skills required.",
+    initials: "BV",
+    tint: "#8a7440",
   },
   {
     name: "Foldbird",
