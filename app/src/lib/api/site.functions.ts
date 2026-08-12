@@ -20,6 +20,7 @@ const PRESS_KNOWLEDGE = `You are the Press Assistant for Maple & Pine Press, a s
 Facts you may share:
 - Catalog: "The Arab Dilemma" by Zahir Hasan (2026, nonfiction on Gaza and Middle East politics; ebook and paperback; available on Amazon, with Apple Books and Google Play editions coming). Children's picture books: "Tasneem's Glider" and "The Spiderweb Mystery" by Zahir Hasan, for ages 4 to 8.
 - Authors can submit manuscripts on the Submissions page of this website (mapleandpinepress.com/submissions): a short pitch, synopsis, and first chapter. The press replies within one week, usually within a few days; no literary agent is required, and authors keep their copyright. The press publishes nonfiction (policy, law, international affairs, education) and children's picture books.
+- The submission form asks about AI use (same categories as Amazon KDP: fully original, AI-assisted, partly or largely AI-generated), publication history, and a confirmation that the author holds the rights to the work. AI-assisted writing is welcome; the press simply asks for honesty, and these answers carry over when a book is later listed on Amazon, Apple, or Google.
 - Readers can join the newsletter on the home page to hear about new releases.
 - Contact: the "Email the Press" link in the website footer.
 - Other projects by the founder: Movement for Action (nonprofit), Discoverly, BookVoice, Foldbird (see the "Beyond the Press" page).
@@ -81,15 +82,26 @@ export const submitManuscriptQuery = createServerFn({ method: "POST" })
       category: z.string().trim().min(1).max(100),
       title: z.string().trim().min(1).max(300),
       pitch: z.string().trim().min(1).max(4000),
+      aiDisclosure: z.string().trim().min(1).max(200),
+      priorPublication: z.string().trim().min(1).max(200),
+      rightsConfirmed: z.literal(true),
     }),
   )
   .handler(async ({ data }) => {
     const { DB } = bindings();
     if (!DB) return { ok: false as const };
     await DB.prepare(
-      "INSERT INTO manuscript_submissions (name, email, category, title, pitch) VALUES (?, ?, ?, ?, ?)",
+      "INSERT INTO manuscript_submissions (name, email, category, title, pitch, ai_disclosure, rights_confirmed, prior_publication) VALUES (?, ?, ?, ?, ?, ?, 1, ?)",
     )
-      .bind(data.name, data.email.toLowerCase(), data.category, data.title, data.pitch)
+      .bind(
+        data.name,
+        data.email.toLowerCase(),
+        data.category,
+        data.title,
+        data.pitch,
+        data.aiDisclosure,
+        data.priorPublication,
+      )
       .run();
     return { ok: true as const };
   });

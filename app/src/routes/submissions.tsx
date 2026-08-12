@@ -24,17 +24,38 @@ function Submissions() {
   const [category, setCategory] = useState("Nonfiction: Policy / Law / Current Affairs");
   const [title, setTitle] = useState("");
   const [pitch, setPitch] = useState("");
+  const [aiDisclosure, setAiDisclosure] = useState(
+    "Entirely my own work, no AI tools used",
+  );
+  const [priorPublication, setPriorPublication] = useState("Never published before");
+  const [rightsConfirmed, setRightsConfirmed] = useState(false);
   const [state, setState] = useState<"idle" | "busy" | "ok" | "err">("idle");
 
   async function onSubmit() {
-    if (!name.trim() || !email.trim() || !email.includes("@") || !title.trim() || !pitch.trim()) {
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !email.includes("@") ||
+      !title.trim() ||
+      !pitch.trim() ||
+      !rightsConfirmed
+    ) {
       setState("err");
       return;
     }
     setState("busy");
     try {
       await submitManuscriptQuery({
-        data: { name, email, category, title, pitch },
+        data: {
+          name,
+          email,
+          category,
+          title,
+          pitch,
+          aiDisclosure,
+          priorPublication,
+          rightsConfirmed: true,
+        },
       });
       setState("ok");
     } catch {
@@ -139,12 +160,52 @@ function Submissions() {
                   onChange={(e) => setPitch(e.target.value)}
                   placeholder="What is the book, who is it for, and why you?"
                 />
+                <label htmlFor="sub-ai">Use of AI Tools</label>
+                <select
+                  id="sub-ai"
+                  value={aiDisclosure}
+                  onChange={(e) => setAiDisclosure(e.target.value)}
+                >
+                  <option>Entirely my own work, no AI tools used</option>
+                  <option>AI-assisted: I wrote it, AI helped edit or refine</option>
+                  <option>Partly AI-generated: some text or images created by AI, edited by me</option>
+                  <option>Largely AI-generated: substantial text or images created by AI</option>
+                </select>
+                <div className="fieldnote">
+                  We use the same categories as Amazon, Apple, and Google, so your answer here
+                  carries over if your book reaches those stores. AI-assisted work is welcome;
+                  we simply need to know.
+                </div>
+                <label htmlFor="sub-prior">Publication History</label>
+                <select
+                  id="sub-prior"
+                  value={priorPublication}
+                  onChange={(e) => setPriorPublication(e.target.value)}
+                >
+                  <option>Never published before</option>
+                  <option>Previously self-published (e.g., on Amazon)</option>
+                  <option>Previously published by another press</option>
+                  <option>Parts published (blog, journal, or excerpt)</option>
+                </select>
+                <label className="checkrow" htmlFor="sub-rights">
+                  <input
+                    id="sub-rights"
+                    type="checkbox"
+                    checked={rightsConfirmed}
+                    onChange={(e) => setRightsConfirmed(e.target.checked)}
+                  />
+                  <span>
+                    I confirm this is my own original work, I hold the rights to it, and it does
+                    not infringe anyone else's copyright.
+                  </span>
+                </label>
                 <button className="sbtn" onClick={() => void onSubmit()} disabled={state === "busy"}>
                   {state === "busy" ? "Sending..." : "Submit Query"}
                 </button>
                 {state === "err" && (
                   <div className="formerr">
-                    Please fill in every field with a valid email, then try again.
+                    Please fill in every field, use a valid email, and tick the rights
+                    confirmation box.
                   </div>
                 )}
               </>
