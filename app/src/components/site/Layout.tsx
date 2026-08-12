@@ -1,6 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { subscribeNewsletter } from "../../lib/api/site.functions";
+import { PressAssistant } from "./Assistant";
+
+const ORG_JSONLD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Maple & Pine Press",
+  url: "https://mapleandpinepress.com",
+  logo: "https://mapleandpinepress.com/assets/favicon.png",
+  description:
+    "Independent press in Tokyo publishing serious nonfiction and illustrated children's books.",
+  founder: { "@type": "Person", name: "Zahir Hasan" },
+});
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -37,6 +49,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main>{children}</main>
+      <PressAssistant />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ORG_JSONLD }} />
       <footer className="site-footer">
         <div className="wrap">
           <div className="fgrid">

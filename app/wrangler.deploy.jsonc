@@ -10,6 +10,7 @@
     "not_found_handling": "none"
   },
   "vars": { "HF_ENV": "production", "APP_SLUG": "maple-and-pine-press" },
+  "ai": { "binding": "AI" },
   "d1_databases": [
     {
       "binding": "DB",

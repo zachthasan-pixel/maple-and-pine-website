@@ -18,6 +18,20 @@ export const Route = createFileRoute("/the-arab-dilemma")({
 
 const AMAZON_URL = "https://www.amazon.com/s?k=The+Arab+Dilemma+Zahir+Hasan&i=stripbooks";
 
+const BOOK_JSONLD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "The Arab Dilemma: Gaza, Atrocity, and the Politics of Abandonment After October 7",
+  author: { "@type": "Person", name: "Zahir Hasan" },
+  publisher: { "@type": "Organization", name: "Maple & Pine Press" },
+  inLanguage: "en",
+  datePublished: "2026-08",
+  numberOfPages: 205,
+  bookFormat: "https://schema.org/Paperback",
+  url: "https://mapleandpinepress.com/the-arab-dilemma",
+  image: "https://mapleandpinepress.com/assets/arab-dilemma-cover.jpg",
+});
+
 function ArabDilemma() {
   return (
     <SiteLayout>
@@ -111,6 +125,7 @@ function ArabDilemma() {
           </div>
         </div>
       </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: BOOK_JSONLD }} />
     </SiteLayout>
   );
 }

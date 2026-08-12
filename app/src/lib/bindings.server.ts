@@ -14,8 +14,13 @@ import type {
   R2Bucket,
 } from "@cloudflare/workers-types";
 
+type WorkersAi = {
+  run: (model: string, options: Record<string, unknown>) => Promise<{ response?: string }>;
+};
+
 type AppEnv = {
   DB?: D1Database;
+  AI?: WorkersAi;
   STORAGE?: R2Bucket;
   KV?: KVNamespace;
   // The container's Durable Object — present only when "container" is set in
