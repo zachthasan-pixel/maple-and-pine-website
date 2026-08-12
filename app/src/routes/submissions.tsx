@@ -74,8 +74,8 @@ function Submissions() {
                 chapter (or the full text for picture books).
               </li>
               <li>
-                We respond within 6 to 8 weeks. If we are interested, we request the full
-                manuscript.
+                We reply within one week, usually within a few days. If we are interested, we
+                request the full manuscript.
               </li>
               <li>
                 If we offer publication, we walk you through terms in plain language. No agent
@@ -93,7 +93,7 @@ function Submissions() {
                 <h2 style={{ fontFamily: "inherit" }}>Received. Thank you.</h2>
                 <p style={{ color: "#4a453e" }}>
                   Your query for <b>{title.trim()}</b> is safely with us. We read everything we
-                  receive and will reply to {email.trim()} within 6 to 8 weeks.
+                  receive and will reply to {email.trim()} within the week.
                 </p>
               </div>
             ) : (
