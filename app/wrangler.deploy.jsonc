@@ -1,0 +1,24 @@
+{
+  "name": "maple-and-pine-press",
+  "main": "dist/server/server.js",
+  "compatibility_date": "2025-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
+  "vars": { "HF_ENV": "production", "APP_SLUG": "maple-and-pine-press" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "maple-pine-press-db",
+      "database_id": "a41963ef-4b1a-4e8d-a128-e12bbf45c998"
+    }
+  ],
+  "routes": [
+    { "pattern": "mapleandpinepress.com", "custom_domain": true },
+    { "pattern": "www.mapleandpinepress.com", "custom_domain": true }
+  ]
+}
