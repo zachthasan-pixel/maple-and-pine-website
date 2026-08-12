@@ -5,7 +5,7 @@ import { SiteLayout } from "../components/site/Layout";
 export const Route = createFileRoute("/beyond-the-press")({
   head: () => ({
     meta: [
-      { title: "Beyond the Press · Hasan Publishing" },
+      { title: "Beyond the Press · Maple & Pine Press" },
       {
         name: "description",
         content:
@@ -62,7 +62,7 @@ function BeyondThePress() {
         <div className="wrap">
           <h1>Beyond the Press</h1>
           <p>
-            Hasan Publishing is one part of a wider body of work. These are the other projects
+            Maple & Pine Press is one part of a wider body of work. These are the other projects
             Dr. Hasan leads, each with its own home on the web.
           </p>
         </div>

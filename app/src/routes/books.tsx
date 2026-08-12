@@ -7,11 +7,11 @@ import { CATALOG, CatalogCard } from "../components/site/catalog";
 export const Route = createFileRoute("/books")({
   head: () => ({
     meta: [
-      { title: "The Catalog · Hasan Publishing" },
+      { title: "The Catalog · Maple & Pine Press" },
       {
         name: "description",
         content:
-          "Every book published by Hasan Publishing: nonfiction on policy and international affairs, and illustrated children's books.",
+          "Every book published by Maple & Pine Press: nonfiction on policy and international affairs, and illustrated children's books.",
       },
     ],
   }),

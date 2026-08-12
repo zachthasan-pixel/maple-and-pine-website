@@ -5,11 +5,11 @@ import { SiteLayout } from "../components/site/Layout";
 export const Route = createFileRoute("/the-arab-dilemma")({
   head: () => ({
     meta: [
-      { title: "The Arab Dilemma · Hasan Publishing" },
+      { title: "The Arab Dilemma · Maple & Pine Press" },
       {
         name: "description",
         content:
-          "Gaza, Atrocity, and the Politics of Abandonment After October 7. By Zahir Hasan. An analytical, evidence-based account from Hasan Publishing, Tokyo.",
+          "Gaza, Atrocity, and the Politics of Abandonment After October 7. By Zahir Hasan. An analytical, evidence-based account from Maple & Pine Press, Tokyo.",
       },
     ],
   }),
@@ -32,7 +32,7 @@ function ArabDilemma() {
             <div className="dmeta">
               <div>
                 <b>Publisher</b>
-                <span>Hasan Publishing, Tokyo</span>
+                <span>Maple & Pine Press, Tokyo</span>
               </div>
               <div>
                 <b>Published</b>

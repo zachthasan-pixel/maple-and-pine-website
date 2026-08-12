@@ -10,8 +10,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       </div>
       <header className="site-header">
         <div className="hwrap">
-          <Link to="/" className="wordmark" aria-label="Hasan Publishing home">
-            <span className="wm1">HASAN&nbsp;PUBLISHING</span>
+          <Link to="/" className="wordmark" aria-label="Maple & Pine Press home">
+            <span className="wm1">MAPLE&nbsp;&amp;&nbsp;PINE&nbsp;PRESS</span>
             <span className="wm2">Independent&nbsp;Press&nbsp;·&nbsp;Tokyo</span>
           </Link>
           <nav aria-label="Main">
@@ -41,7 +41,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="wrap">
           <div className="fgrid">
             <div>
-              <div className="fmark">HASAN PUBLISHING</div>
+              <div className="fmark">MAPLE & PINE PRESS</div>
               <p style={{ maxWidth: 280 }}>
                 An independent press in Tokyo, publishing serious nonfiction and illustrated
                 children's books for readers worldwide.
@@ -67,7 +67,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
           <div className="fbottom">
-            <div>© 2026 Hasan Publishing. All rights reserved.</div>
+            <div>© 2026 Maple & Pine Press. All rights reserved.</div>
             <div>Independent Press · Tokyo</div>
           </div>
         </div>

@@ -5,11 +5,11 @@ import { SiteLayout } from "../components/site/Layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About · Hasan Publishing" },
+      { title: "About · Maple & Pine Press" },
       {
         name: "description",
         content:
-          "Hasan Publishing is an independent press founded in Tokyo by Dr. Zahir Hasan, publishing serious nonfiction and illustrated children's books.",
+          "Maple & Pine Press is an independent press founded in Tokyo by Dr. Zahir Hasan, publishing serious nonfiction and illustrated children's books.",
       },
     ],
   }),
@@ -21,7 +21,7 @@ function About() {
     <SiteLayout>
       <div className="pagehead">
         <div className="wrap">
-          <h1>About Hasan Publishing</h1>
+          <h1>About Maple & Pine Press</h1>
           <p>
             An independent press founded in Tokyo, publishing serious nonfiction and beautiful
             children's books with equal care.
@@ -33,10 +33,16 @@ function About() {
           <div>
             <h2>Our Story</h2>
             <p>
-              Hasan Publishing began the way many good presses do: with books that needed to
+              Maple & Pine Press began the way many good presses do: with books that needed to
               exist and an author willing to learn every step of making them. The manuscript,
               the typesetting, the covers, the distribution. What started as a personal imprint
               has grown into something with a broader mission.
+            </p>
+            <p>
+              The name joins our two homes. The maple stands for Canada, where our founder is
+              from; the pine for Japan, where we publish today. In Japanese tradition the pine,
+              <i> matsu</i>, is the tree of endurance and long life, and that is the quality we
+              want in every book we make.
             </p>
             <p>
               We publish across two lists. Our <b>nonfiction list</b> takes on questions of

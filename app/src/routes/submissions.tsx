@@ -7,11 +7,11 @@ import { submitManuscriptQuery } from "../lib/api/site.functions";
 export const Route = createFileRoute("/submissions")({
   head: () => ({
     meta: [
-      { title: "Submissions · Hasan Publishing" },
+      { title: "Submissions · Maple & Pine Press" },
       {
         name: "description",
         content:
-          "Submit your manuscript to Hasan Publishing. We read every submission: nonfiction on policy, law, and current affairs, and children's picture books.",
+          "Submit your manuscript to Maple & Pine Press. We read every submission: nonfiction on policy, law, and current affairs, and children's picture books.",
       },
     ],
   }),

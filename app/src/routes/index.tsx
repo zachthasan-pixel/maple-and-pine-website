@@ -13,7 +13,7 @@ function Index() {
       <div className="hero">
         <div className="wrap">
           <div>
-            <div className="kicker">New from Hasan Publishing</div>
+            <div className="kicker">New from Maple & Pine Press</div>
             <h1>The Arab Dilemma</h1>
             <div className="sub">
               Gaza, Atrocity, and the Politics of Abandonment After October 7
