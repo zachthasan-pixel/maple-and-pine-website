@@ -15,6 +15,16 @@ export type CatalogEntry = {
 
 export const CATALOG: CatalogEntry[] = [
   {
+    id: "manufactured-war",
+    title: "A Manufactured War",
+    meta: "Zahir Hasan · Updated Aug 2026 · Ebook & Paperback",
+    pill: "Politics & Current Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    coverImg: "/assets/manufactured-war-cover.jpg",
+    href: "/a-manufactured-war",
+  },
+  {
     id: "arab-dilemma",
     title: "The Arab Dilemma",
     meta: "Zahir Hasan · 2026 · Ebook & Paperback",

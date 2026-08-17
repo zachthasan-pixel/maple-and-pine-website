@@ -16,6 +16,7 @@ import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as BooksRouteImport } from './routes/books'
 import { Route as BeyondThePressRouteImport } from './routes/beyond-the-press'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AManufacturedWarRouteImport } from './routes/a-manufactured-war'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiStatsRouteImport } from './routes/api/stats'
 
@@ -54,6 +55,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AManufacturedWarRoute = AManufacturedWarRouteImport.update({
+  id: '/a-manufactured-war',
+  path: '/a-manufactured-war',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -67,6 +73,7 @@ const ApiStatsRoute = ApiStatsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-manufactured-war': typeof AManufacturedWarRoute
   '/about': typeof AboutRoute
   '/beyond-the-press': typeof BeyondThePressRoute
   '/books': typeof BooksRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-manufactured-war': typeof AManufacturedWarRoute
   '/about': typeof AboutRoute
   '/beyond-the-press': typeof BeyondThePressRoute
   '/books': typeof BooksRoute
@@ -90,6 +98,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-manufactured-war': typeof AManufacturedWarRoute
   '/about': typeof AboutRoute
   '/beyond-the-press': typeof BeyondThePressRoute
   '/books': typeof BooksRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/a-manufactured-war'
     | '/about'
     | '/beyond-the-press'
     | '/books'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/a-manufactured-war'
     | '/about'
     | '/beyond-the-press'
     | '/books'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/a-manufactured-war'
     | '/about'
     | '/beyond-the-press'
     | '/books'
@@ -137,6 +149,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AManufacturedWarRoute: typeof AManufacturedWarRoute
   AboutRoute: typeof AboutRoute
   BeyondThePressRoute: typeof BeyondThePressRoute
   BooksRoute: typeof BooksRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-manufactured-war': {
+      id: '/a-manufactured-war'
+      path: '/a-manufactured-war'
+      fullPath: '/a-manufactured-war'
+      preLoaderRoute: typeof AManufacturedWarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -217,6 +237,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AManufacturedWarRoute: AManufacturedWarRoute,
   AboutRoute: AboutRoute,
   BeyondThePressRoute: BeyondThePressRoute,
   BooksRoute: BooksRoute,

@@ -18,7 +18,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="site">
       <div className="topbar">
-        <b>New release:</b> <i>The Arab Dilemma</i>, now available in ebook and paperback
+        <b>New release:</b> <i>A Manufactured War</i>, updated through August 2026, in ebook
+        and paperback
       </div>
       <header className="site-header">
         <div className="hwrap">
@@ -64,6 +65,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <div>
               <h5>Books</h5>
               <Link to="/books">Full Catalog</Link>
+              <Link to="/a-manufactured-war">A Manufactured War</Link>
               <Link to="/the-arab-dilemma">The Arab Dilemma</Link>
               <Link to="/books">Children's List</Link>
             </div>

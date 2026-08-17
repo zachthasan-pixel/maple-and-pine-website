@@ -14,18 +14,16 @@ function Index() {
         <div className="wrap">
           <div>
             <div className="kicker">New from Maple & Pine Press</div>
-            <h1>The Arab Dilemma</h1>
-            <div className="sub">
-              Gaza, Atrocity, and the Politics of Abandonment After October 7
-            </div>
+            <h1>A Manufactured War</h1>
+            <div className="sub">The Israeli and American Assault on Iran</div>
             <p className="blurb">
-              Why did the world watch Gaza's destruction unfold, and look away? Drawing on
-              international law and diplomatic history, Dr. Zahir Hasan traces the political
-              calculations behind a collective abandonment, and holds every side to a single
-              standard.
+              On 28 February 2026, American and Israeli aircraft struck Iran. Governments
+              called it necessity. This book calls it a choice. Updated through August 2026
+              with six new chapters, from the Versailles memorandum to the summer of
+              attrition.
             </p>
             <div className="btnrow">
-              <Link to="/the-arab-dilemma" className="hp-btn primary">
+              <Link to="/a-manufactured-war" className="hp-btn primary">
                 About the Book
               </Link>
               <Link to="/books" className="hp-btn ghost">
@@ -34,8 +32,8 @@ function Index() {
             </div>
           </div>
           <div className="hero-cover">
-            <div className="badge">New Release</div>
-            <img src="/assets/arab-dilemma-cover.jpg" alt="The Arab Dilemma book cover" />
+            <div className="badge">Updated Aug 2026</div>
+            <img src="/assets/manufactured-war-cover.jpg" alt="A Manufactured War book cover" />
           </div>
         </div>
       </div>
