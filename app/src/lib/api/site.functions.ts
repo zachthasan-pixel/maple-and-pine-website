@@ -162,16 +162,44 @@ export const generateCoverArt = createServerFn({ method: "POST" })
       }
     }
     const prompt = `Professional book cover background artwork. Atmosphere and subject: ${data.mood}. Painterly, dramatic lighting, strong composition with quiet space near the top and bottom for typography. Absolutely no text, no letters, no words, no typography in the image.`;
-    try {
-      const result = await AI.run("@cf/black-forest-labs/flux-1-schnell", {
-        prompt,
-        steps: 6,
-      });
-      if (result.image) return { ok: true as const, image: result.image };
-      return { ok: false as const, reason: "unavailable" as const };
-    } catch {
-      return { ok: false as const, reason: "unavailable" as const };
+    const models: Array<{ id: string; options: Record<string, unknown> }> = [
+      {
+        id: "@cf/bytedance/stable-diffusion-xl-lightning",
+        options: {
+          prompt,
+          width: 768,
+          height: 1024,
+          negative_prompt: "text, letters, words, typography, watermark, signature",
+        },
+      },
+      { id: "@cf/black-forest-labs/flux-1-schnell", options: { prompt, steps: 6 } },
+    ];
+    for (const m of models) {
+      try {
+        const result: unknown = await (
+          AI as unknown as { run: (id: string, o: unknown) => Promise<unknown> }
+        ).run(m.id, m.options);
+        if (result instanceof ReadableStream) {
+          const buf = new Uint8Array(await new Response(result).arrayBuffer());
+          let bin = "";
+          for (let i = 0; i < buf.length; i += 8192) {
+            bin += String.fromCharCode(...buf.subarray(i, i + 8192));
+          }
+          return { ok: true as const, image: btoa(bin) };
+        }
+        if (
+          result &&
+          typeof result === "object" &&
+          "image" in result &&
+          typeof (result as { image?: string }).image === "string"
+        ) {
+          return { ok: true as const, image: (result as { image: string }).image };
+        }
+      } catch {
+        // Try the next model.
+      }
     }
+    return { ok: false as const, reason: "unavailable" as const };
   });
 
 // Submission status lookup by reference number + email.
