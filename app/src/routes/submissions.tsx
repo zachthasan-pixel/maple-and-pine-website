@@ -29,6 +29,7 @@ function Submissions() {
   );
   const [priorPublication, setPriorPublication] = useState("Never published before");
   const [rightsConfirmed, setRightsConfirmed] = useState(false);
+  const [ref, setRef] = useState("");
   const [state, setState] = useState<"idle" | "busy" | "ok" | "err">("idle");
 
   async function onSubmit() {
@@ -45,7 +46,7 @@ function Submissions() {
     }
     setState("busy");
     try {
-      await submitManuscriptQuery({
+      const res = await submitManuscriptQuery({
         data: {
           name,
           email,
@@ -57,6 +58,7 @@ function Submissions() {
           rightsConfirmed: true,
         },
       });
+      if ("ref" in res && res.ref) setRef(res.ref);
       setState("ok");
     } catch {
       setState("err");
@@ -116,6 +118,13 @@ function Submissions() {
                   Your query for <b>{title.trim()}</b> is safely with us. We read everything we
                   receive and will reply to {email.trim()} within the week.
                 </p>
+                {ref && (
+                  <p style={{ color: "#4a453e" }}>
+                    Your reference number is <b>{ref}</b>. Keep it: together with your email, it
+                    lets you check the status of your submission any time on our Author Toolkit
+                    page.
+                  </p>
+                )}
               </div>
             ) : (
               <>

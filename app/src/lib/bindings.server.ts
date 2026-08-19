@@ -15,7 +15,10 @@ import type {
 } from "@cloudflare/workers-types";
 
 type WorkersAi = {
-  run: (model: string, options: Record<string, unknown>) => Promise<{ response?: string }>;
+  run: (
+    model: string,
+    options: Record<string, unknown>,
+  ) => Promise<{ response?: string; image?: string }>;
 };
 
 type AppEnv = {

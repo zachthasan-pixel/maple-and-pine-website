@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ToolkitRouteImport } from './routes/toolkit'
 import { Route as TheArabDilemmaRouteImport } from './routes/the-arab-dilemma'
 import { Route as SubmissionsRouteImport } from './routes/submissions'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -20,6 +21,11 @@ import { Route as AManufacturedWarRouteImport } from './routes/a-manufactured-wa
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiStatsRouteImport } from './routes/api/stats'
 
+const ToolkitRoute = ToolkitRouteImport.update({
+  id: '/toolkit',
+  path: '/toolkit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TheArabDilemmaRoute = TheArabDilemmaRouteImport.update({
   id: '/the-arab-dilemma',
   path: '/the-arab-dilemma',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
+  '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
+  '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
+  '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submissions'
     | '/the-arab-dilemma'
+    | '/toolkit'
     | '/api/stats'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submissions'
     | '/the-arab-dilemma'
+    | '/toolkit'
     | '/api/stats'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submissions'
     | '/the-arab-dilemma'
+    | '/toolkit'
     | '/api/stats'
   fileRoutesById: FileRoutesById
 }
@@ -157,11 +169,19 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SubmissionsRoute: typeof SubmissionsRoute
   TheArabDilemmaRoute: typeof TheArabDilemmaRoute
+  ToolkitRoute: typeof ToolkitRoute
   ApiStatsRoute: typeof ApiStatsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/toolkit': {
+      id: '/toolkit'
+      path: '/toolkit'
+      fullPath: '/toolkit'
+      preLoaderRoute: typeof ToolkitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/the-arab-dilemma': {
       id: '/the-arab-dilemma'
       path: '/the-arab-dilemma'
@@ -245,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SubmissionsRoute: SubmissionsRoute,
   TheArabDilemmaRoute: TheArabDilemmaRoute,
+  ToolkitRoute: ToolkitRoute,
   ApiStatsRoute: ApiStatsRoute,
 }
 export const routeTree = rootRouteImport
