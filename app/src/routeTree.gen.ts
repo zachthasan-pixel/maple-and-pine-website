@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ToolkitRouteImport } from './routes/toolkit'
 import { Route as TheArabDilemmaRouteImport } from './routes/the-arab-dilemma'
 import { Route as SubmissionsRouteImport } from './routes/submissions'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -19,15 +18,11 @@ import { Route as BeyondThePressRouteImport } from './routes/beyond-the-press'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AManufacturedWarRouteImport } from './routes/a-manufactured-war'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolkitIndexRouteImport } from './routes/toolkit.index'
 import { Route as ToolkitPrintCoverRouteImport } from './routes/toolkit.print-cover'
 import { Route as ToolkitInteriorLayoutRouteImport } from './routes/toolkit.interior-layout'
 import { Route as ApiStatsRouteImport } from './routes/api/stats'
 
-const ToolkitRoute = ToolkitRouteImport.update({
-  id: '/toolkit',
-  path: '/toolkit',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TheArabDilemmaRoute = TheArabDilemmaRouteImport.update({
   id: '/the-arab-dilemma',
   path: '/the-arab-dilemma',
@@ -73,6 +68,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolkitIndexRoute = ToolkitIndexRouteImport.update({
+  id: '/toolkit/',
+  path: '/toolkit/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolkitPrintCoverRoute = ToolkitPrintCoverRouteImport.update({
   id: '/toolkit/print-cover',
   path: '/toolkit/print-cover',
@@ -99,10 +99,10 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
-  '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
   '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
   '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
+  '/toolkit/': typeof ToolkitIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -114,10 +114,10 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
-  '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
   '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
   '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
+  '/toolkit': typeof ToolkitIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -130,10 +130,10 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
-  '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
   '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
   '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
+  '/toolkit/': typeof ToolkitIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -147,10 +147,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submissions'
     | '/the-arab-dilemma'
-    | '/toolkit'
     | '/api/stats'
     | '/toolkit/interior-layout'
     | '/toolkit/print-cover'
+    | '/toolkit/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -162,10 +162,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submissions'
     | '/the-arab-dilemma'
-    | '/toolkit'
     | '/api/stats'
     | '/toolkit/interior-layout'
     | '/toolkit/print-cover'
+    | '/toolkit'
   id:
     | '__root__'
     | '/'
@@ -177,10 +177,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/submissions'
     | '/the-arab-dilemma'
-    | '/toolkit'
     | '/api/stats'
     | '/toolkit/interior-layout'
     | '/toolkit/print-cover'
+    | '/toolkit/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -193,21 +193,14 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SubmissionsRoute: typeof SubmissionsRoute
   TheArabDilemmaRoute: typeof TheArabDilemmaRoute
-  ToolkitRoute: typeof ToolkitRoute
   ApiStatsRoute: typeof ApiStatsRoute
   ToolkitInteriorLayoutRoute: typeof ToolkitInteriorLayoutRoute
   ToolkitPrintCoverRoute: typeof ToolkitPrintCoverRoute
+  ToolkitIndexRoute: typeof ToolkitIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/toolkit': {
-      id: '/toolkit'
-      path: '/toolkit'
-      fullPath: '/toolkit'
-      preLoaderRoute: typeof ToolkitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/the-arab-dilemma': {
       id: '/the-arab-dilemma'
       path: '/the-arab-dilemma'
@@ -271,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/toolkit/': {
+      id: '/toolkit/'
+      path: '/toolkit'
+      fullPath: '/toolkit/'
+      preLoaderRoute: typeof ToolkitIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/toolkit/print-cover': {
       id: '/toolkit/print-cover'
       path: '/toolkit/print-cover'
@@ -305,10 +305,10 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SubmissionsRoute: SubmissionsRoute,
   TheArabDilemmaRoute: TheArabDilemmaRoute,
-  ToolkitRoute: ToolkitRoute,
   ApiStatsRoute: ApiStatsRoute,
   ToolkitInteriorLayoutRoute: ToolkitInteriorLayoutRoute,
   ToolkitPrintCoverRoute: ToolkitPrintCoverRoute,
+  ToolkitIndexRoute: ToolkitIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

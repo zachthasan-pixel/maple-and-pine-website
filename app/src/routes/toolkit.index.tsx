@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
@@ -8,14 +8,14 @@ import {
   generateCoverArt,
 } from "../lib/api/site.functions";
 
-export const Route = createFileRoute("/toolkit")({
+export const Route = createFileRoute("/toolkit/")({
   head: () => ({
     meta: [
       { title: "Author Toolkit · Maple & Pine Press" },
       {
         name: "description",
         content:
-          "Free tools for authors from Maple & Pine Press: title and name checker, AI cover concept studio, royalty and print calculator, and submission status.",
+          "Free tools for authors from Maple & Pine Press: title and name checker, AI cover concept studio, royalty and print calculator, print cover and interior layout studios, and submission status.",
       },
     ],
   }),
@@ -436,6 +436,28 @@ function Toolkit() {
               cost, and what you would earn per copy sold.
             </p>
             <RoyaltyCalculator />
+          </section>
+          <section className="tksec">
+            <h2>Print Cover Studio</h2>
+            <p>
+              When the book is ready to print: the exact spine width for your page count and
+              paper, the full-wrap dimensions with bleed, and a to-scale template showing what
+              gets trimmed off and where the barcode sits.
+            </p>
+            <Link to="/toolkit/print-cover" className="tklink">
+              Open Print Cover Studio →
+            </Link>
+          </section>
+          <section className="tksec">
+            <h2>Interior Layout Studio</h2>
+            <p>
+              Margins for the inside of the book, so the text clears the binding and nothing is
+              cut off. Shows a facing-page spread to scale, with the gutter growing as the book
+              gets thicker.
+            </p>
+            <Link to="/toolkit/interior-layout" className="tklink">
+              Open Interior Layout Studio →
+            </Link>
           </section>
           <section className="tksec">
             <h2>Submission Status</h2>

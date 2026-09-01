@@ -297,3 +297,8 @@
   --tk-trim:var(--accent); --tk-safe:#2c6e8f; --tk-gutter:var(--gold);
   --tk-reserve:#a9a294; --tk-textblock:var(--cream); --tk-serif:var(--serif);
 }
+.site .tklink{ display:inline-block; font-family:var(--sans); font-size:14px; font-weight:500;
+  color:var(--paper); background:var(--accent); padding:10px 16px; border-radius:2px;
+  text-decoration:none }
+.site .tklink:hover{ background:var(--accent-dark) }
+.site .tklink:focus-visible{ outline:2px solid var(--ink); outline-offset:2px }
