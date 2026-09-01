@@ -350,3 +350,12 @@
   .site .bookgrid{grid-template-columns:1fr;gap:30px;}
   .site .bookcover{max-width:240px;}
 }
+
+/* Book description */
+.site .bookdesc{margin:0 0 30px;max-width:62ch;}
+.site .bookdesc p{font-family:var(--serif);font-size:16.5px;line-height:1.62;
+  color:var(--ink);margin:0 0 14px;}
+.site .bookdesc p:first-child{font-size:18px;}
+.site .bookdesc p:last-child{margin-bottom:0;}
+.site .card .meta .excerpt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;margin-top:6px;color:var(--ink-soft);opacity:.9;line-height:1.45;}

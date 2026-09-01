@@ -64,6 +64,14 @@ function BookPage() {
           </div>
 
           <div className="bookmeta">
+            {book.description && book.description.length > 0 ? (
+              <div className="bookdesc">
+                {book.description.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            ) : null}
+
             <dl>
               <dt>Author</dt>
               <dd>Zahir Hasan</dd>
