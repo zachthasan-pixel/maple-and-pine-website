@@ -19,6 +19,8 @@ import { Route as BeyondThePressRouteImport } from './routes/beyond-the-press'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AManufacturedWarRouteImport } from './routes/a-manufactured-war'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolkitPrintCoverRouteImport } from './routes/toolkit.print-cover'
+import { Route as ToolkitInteriorLayoutRouteImport } from './routes/toolkit.interior-layout'
 import { Route as ApiStatsRouteImport } from './routes/api/stats'
 
 const ToolkitRoute = ToolkitRouteImport.update({
@@ -71,6 +73,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolkitPrintCoverRoute = ToolkitPrintCoverRouteImport.update({
+  id: '/toolkit/print-cover',
+  path: '/toolkit/print-cover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolkitInteriorLayoutRoute = ToolkitInteriorLayoutRouteImport.update({
+  id: '/toolkit/interior-layout',
+  path: '/toolkit/interior-layout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStatsRoute = ApiStatsRouteImport.update({
   id: '/api/stats',
   path: '/api/stats',
@@ -89,6 +101,8 @@ export interface FileRoutesByFullPath {
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
   '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
+  '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
+  '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +116,8 @@ export interface FileRoutesByTo {
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
   '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
+  '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
+  '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +132,8 @@ export interface FileRoutesById {
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
   '/toolkit': typeof ToolkitRoute
   '/api/stats': typeof ApiStatsRoute
+  '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
+  '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +149,8 @@ export interface FileRouteTypes {
     | '/the-arab-dilemma'
     | '/toolkit'
     | '/api/stats'
+    | '/toolkit/interior-layout'
+    | '/toolkit/print-cover'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +164,8 @@ export interface FileRouteTypes {
     | '/the-arab-dilemma'
     | '/toolkit'
     | '/api/stats'
+    | '/toolkit/interior-layout'
+    | '/toolkit/print-cover'
   id:
     | '__root__'
     | '/'
@@ -157,6 +179,8 @@ export interface FileRouteTypes {
     | '/the-arab-dilemma'
     | '/toolkit'
     | '/api/stats'
+    | '/toolkit/interior-layout'
+    | '/toolkit/print-cover'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +195,8 @@ export interface RootRouteChildren {
   TheArabDilemmaRoute: typeof TheArabDilemmaRoute
   ToolkitRoute: typeof ToolkitRoute
   ApiStatsRoute: typeof ApiStatsRoute
+  ToolkitInteriorLayoutRoute: typeof ToolkitInteriorLayoutRoute
+  ToolkitPrintCoverRoute: typeof ToolkitPrintCoverRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -245,6 +271,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/toolkit/print-cover': {
+      id: '/toolkit/print-cover'
+      path: '/toolkit/print-cover'
+      fullPath: '/toolkit/print-cover'
+      preLoaderRoute: typeof ToolkitPrintCoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/toolkit/interior-layout': {
+      id: '/toolkit/interior-layout'
+      path: '/toolkit/interior-layout'
+      fullPath: '/toolkit/interior-layout'
+      preLoaderRoute: typeof ToolkitInteriorLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/stats': {
       id: '/api/stats'
       path: '/api/stats'
@@ -267,6 +307,8 @@ const rootRouteChildren: RootRouteChildren = {
   TheArabDilemmaRoute: TheArabDilemmaRoute,
   ToolkitRoute: ToolkitRoute,
   ApiStatsRoute: ApiStatsRoute,
+  ToolkitInteriorLayoutRoute: ToolkitInteriorLayoutRoute,
+  ToolkitPrintCoverRoute: ToolkitPrintCoverRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
