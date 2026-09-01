@@ -1,7 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { NewsletterBand, SiteLayout } from "../components/site/Layout";
-import { CATALOG, CatalogCard } from "../components/site/catalog";
+import { FEATURED, CatalogCard } from "../components/site/catalog";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -46,8 +46,8 @@ function Index() {
             <Link to="/books">Browse all books →</Link>
           </div>
           <div className="grid">
-            {CATALOG.map((book) => (
-              <CatalogCard key={book.id} book={book} />
+            {FEATURED.map((book) => (
+              <CatalogCard key={book.slug} book={book} />
             ))}
           </div>
         </div>

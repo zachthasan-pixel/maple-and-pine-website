@@ -1,70 +1,697 @@
 import { Link } from "@tanstack/react-router";
 
+export type BookCategory = "policy" | "practice" | "fiction" | "kids";
+
 export type CatalogEntry = {
-  id: string;
+  slug: string;
   title: string;
-  meta: string;
+  subtitle?: string;
+  /** Amazon ASINs, ebook first where both exist. */
+  asins: string[];
+  status: "published" | "forthcoming";
   pill: string;
-  pillClass: "policy" | "kids" | "soon";
-  filter: "policy" | "kids" | "soon";
+  pillClass: BookCategory;
+  filter: BookCategory;
   coverImg?: string;
-  coverClass?: string;
-  coverTag?: string;
-  href?: string;
+  href: string;
+};
+
+export const CATEGORY_LABELS: Record<BookCategory, string> = {
+  policy: "Politics & International Affairs",
+  practice: "Education & Practice",
+  fiction: "Fantasy & Speculative Fiction",
+  kids: "Children's Books",
+};
+
+/** Covers we hold locally. Everything else falls back to a typeset card. */
+const LOCAL_COVERS: Record<string, string> = {
+  "a-manufactured-war": "/assets/manufactured-war-cover.jpg",
+  "the-arab-dilemma": "/assets/arab-dilemma-cover.jpg",
 };
 
 export const CATALOG: CatalogEntry[] = [
   {
-    id: "manufactured-war",
-    title: "A Manufactured War",
-    meta: "Zahir Hasan · Updated Aug 2026 · Ebook & Paperback",
-    pill: "Politics & Current Affairs",
+    slug: "a-land-unknown",
+    title: "A Land Unknown",
+    subtitle: "America's New Machinery of Expulsion \u2014 and the Case for Ending It",
+    asins: ["B0HFLSDR1Q", "B0HFLLGZJK"],
+    status: "published",
+    pill: "Politics & International Affairs",
     pillClass: "policy",
     filter: "policy",
-    coverImg: "/assets/manufactured-war-cover.jpg",
+    href: "/book/a-land-unknown",
+  },
+  {
+    slug: "a-manufactured-war",
+    title: "A Manufactured War",
+    subtitle: "The Israeli and American Assault on Iran",
+    asins: ["B0H9J4SSZN", "B0H9J8XMFW"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
     href: "/a-manufactured-war",
   },
   {
-    id: "arab-dilemma",
-    title: "The Arab Dilemma",
-    meta: "Zahir Hasan · 2026 · Ebook & Paperback",
-    pill: "Politics & Current Affairs",
+    slug: "canada-at-the-crossroads",
+    title: "Canada at the Crossroads",
+    subtitle: "Multiculturalism, Allegiance, and the Meaning of Citizenship",
+    asins: ["B0HBWMJYSS", "B0HBWRH2ZZ"],
+    status: "published",
+    pill: "Politics & International Affairs",
     pillClass: "policy",
     filter: "policy",
-    coverImg: "/assets/arab-dilemma-cover.jpg",
+    href: "/book/canada-at-the-crossroads",
+  },
+  {
+    slug: "elbows-up",
+    title: "Elbows Up",
+    subtitle: "Canada, the United States, and the Rupture of a Continental Partnership",
+    asins: ["B0HGBG49QQ", "B0HGGJ23MP"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/elbows-up",
+  },
+  {
+    slug: "japan-s-secret-war",
+    title: "Japan's Secret War",
+    subtitle: "Spies, Scandals, and the Fight to Build a Modern Intelligence State",
+    asins: ["B0H9X1PYQH", "B0HCM485TZ"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/japan-s-secret-war",
+  },
+  {
+    slug: "japan-s-strategic-awakening",
+    title: "Japan's Strategic Awakening",
+    subtitle: "Law, Capability, and the Realignment of Indo-Pacific Security",
+    asins: ["B0H9X5HM5L", "B0HB49D153"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/japan-s-strategic-awakening",
+  },
+  {
+    slug: "japans-unavoidable-choice",
+    title: "Japan\u2019s Unavoidable Choice",
+    subtitle: "Immigration, Artificial Intelligence, and the Struggle to Remain a Global Power",
+    asins: ["B0HDG4TCZC", "B0HGNWCWR5"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/japans-unavoidable-choice",
+  },
+  {
+    slug: "nato-at-the-breaking-point",
+    title: "NATO at the Breaking Point",
+    subtitle: "War in Ukraine, American Uncertainty, and the Future of European Security",
+    asins: ["B0HG5ZQFPS", "B0HG7CBX8T"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/nato-at-the-breaking-point",
+  },
+  {
+    slug: "pakistan-s-unfinished-democratic-transition",
+    title: "Pakistan's Unfinished Democratic Transition",
+    subtitle: "Military Tutelage, Institutional Weakness, and the Search for Civilian Supremacy",
+    asins: ["B0HF6X3Y25", "B0HF82CY1F"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/pakistan-s-unfinished-democratic-transition",
+  },
+  {
+    slug: "taiwan-at-the-fault-line",
+    title: "Taiwan at the Fault Line",
+    subtitle: "Deterrence, Alliance, and the Struggle to Keep the Peace in the Indo-Pacific",
+    asins: ["B0HCBZXJGP", "B0HCBX7WH7"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/taiwan-at-the-fault-line",
+  },
+  {
+    slug: "the-arab-dilemma",
+    title: "The Arab Dilemma",
+    subtitle: "Gaza, Atrocity, and the Politics of Abandonment After October 7",
+    asins: ["B0HDPS31RK", "B0HDYDWSDX"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
     href: "/the-arab-dilemma",
   },
   {
-    id: "tasneems-glider",
+    slug: "the-breaking-of-american-democracy",
+    title: "The Breaking of American Democracy",
+    subtitle: "Power, Profit, and the Unmaking of Constitutional Restraint",
+    asins: ["B0HC51WDTY", "B0HC5N47PK"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/the-breaking-of-american-democracy",
+  },
+  {
+    slug: "the-permanent-suspect",
+    title: "The Permanent Suspect",
+    subtitle: "Islamophobia's Long Run Through North American Life",
+    asins: ["B0HBLT47RP", "B0HBMZCHTD"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/the-permanent-suspect",
+  },
+  {
+    slug: "the-politics-of-removal",
+    title: "The Politics of Removal",
+    subtitle: "Imran Khan, Law, Sovereignty, and Pakistan\u2019s Hybrid Order",
+    asins: ["B0H9SPJXC3", "B0H9SKQRPC"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/the-politics-of-removal",
+  },
+  {
+    slug: "the-sovereignty-of-truth",
+    title: "The Sovereignty of Truth",
+    subtitle: "How Democracies Legislate Against Political Deception",
+    asins: ["B0HB4JY8P9", "B0HB4FP6XP"],
+    status: "published",
+    pill: "Politics & International Affairs",
+    pillClass: "policy",
+    filter: "policy",
+    href: "/book/the-sovereignty-of-truth",
+  },
+  {
+    slug: "critical-thinking-in-the-age-of-ai",
+    title: "Critical Thinking in the Age of AI",
+    subtitle: "How to Question, Verify, and Decide in a World of Generative Machines",
+    asins: ["B0H3LQB35T"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/critical-thinking-in-the-age-of-ai",
+  },
+  {
+    slug: "english-for-academic-purposes",
+    title: "English for Academic Purposes",
+    subtitle: "Reading, Writing, Research, and Communication for University Success",
+    asins: ["B0HH8QVD2L"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/english-for-academic-purposes",
+  },
+  {
+    slug: "grit-unplugged",
+    title: "GRIT Unplugged",
+    subtitle: "The Unfiltered Truth About Getting Back Up",
+    asins: ["B0HCLZ9WV1", "B0HCM44QNQ"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/grit-unplugged",
+  },
+  {
+    slug: "law-for-everyday-life",
+    title: "Law for Everyday Life",
+    subtitle: "A Practical Guide to Contracts, Employment, Privacy, Consumer Rights, and the Internet",
+    asins: ["B0HH8K7KKW"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/law-for-everyday-life",
+  },
+  {
+    slug: "power-beyond-position",
+    title: "Power Beyond Position",
+    subtitle: "Workplace Harassment, Informal Authority, and Corporate Accountability in Japan",
+    asins: ["B0HGMLSXRM", "B0HGMPBJ51"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/power-beyond-position",
+  },
+  {
+    slug: "project-based-learning-in-action",
+    title: "Project-Based Learning in Action",
+    subtitle: "A Practical Guide to Designing, Teaching, Assessing, and Sustaining Meaningful Learning",
+    asins: ["B0HH91LDBG"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/project-based-learning-in-action",
+  },
+  {
+    slug: "take-back-your-hours",
+    title: "Take Back Your Hours",
+    subtitle: "Simple Ways to Manage Your Time in a Distracted World",
+    asins: ["B0HCJXYLK5", "B0HCM2S1J7"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/take-back-your-hours",
+  },
+  {
+    slug: "the-ai-classroom",
+    title: "The AI Classroom",
+    subtitle: "A Practical Handbook for Teachers and Administrators: Assessment Redesign, Academic Integrity, Policy and Governance",
+    asins: ["B0HH8D848W", "B0HHCZJ2CW"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/the-ai-classroom",
+  },
+  {
+    slug: "university-students-and-artificial-intelligence",
+    title: "University Students and Artificial Intelligence",
+    subtitle: "Adoption, Learning, Integrity, and Governance in Japan, the United States, and Europe",
+    asins: ["B0HF7YD1D1", "B0HF7YFM4N"],
+    status: "published",
+    pill: "Education & Practice",
+    pillClass: "practice",
+    filter: "practice",
+    href: "/book/university-students-and-artificial-intelligence",
+  },
+  {
+    slug: "a-court-of-knives",
+    title: "A Court of Knives",
+    asins: ["B0H2KNL5FB"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/a-court-of-knives",
+  },
+  {
+    slug: "a-throne-of-cinders",
+    title: "A Throne of Cinders",
+    asins: ["B0HCTMKTB4", "B0HCTW2QFV"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/a-throne-of-cinders",
+  },
+  {
+    slug: "the-ashen-veil-saga",
+    title: "The Ashen Veil Saga",
+    subtitle: "The Commonborn",
+    asins: ["B0HFN91HQK"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-ashen-veil-saga",
+  },
+  {
+    slug: "the-chronicles-of-aethelgard",
+    title: "The Chronicles of Aethelgard",
+    subtitle: "The Whispering Woods",
+    asins: ["B0HBXLK62F", "B0HC42GWJY"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-chronicles-of-aethelgard",
+  },
+  {
+    slug: "the-elk-kingdom",
+    title: "The Elk Kingdom",
+    subtitle: "Book I: The Silent Veil",
+    asins: ["B0HBRTFMD7", "B0HBWRJ7FC"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-elk-kingdom",
+  },
+  {
+    slug: "the-exiles-blood",
+    title: "The Exile\u2019s Blood",
+    subtitle: "A Dark Fantasy Novel",
+    asins: ["B0H6NJ999L"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-exiles-blood",
+  },
+  {
+    slug: "the-first-shadow",
+    title: "The First Shadow",
+    subtitle: "The Whispering Realms - Episode 1",
+    asins: ["B0HBCPSJ4X", "B0HBD5PCMB"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-first-shadow",
+  },
+  {
+    slug: "the-high-tower-of-glass",
+    title: "The High Tower of Glass",
+    asins: ["B0HD891ZW6"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-high-tower-of-glass",
+  },
+  {
+    slug: "the-house-beneath-the-ash",
+    title: "The House Beneath the Ash",
+    asins: ["B0HD6K1TMK"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-house-beneath-the-ash",
+  },
+  {
+    slug: "the-last-lobby",
+    title: "The Last Lobby",
+    asins: ["B0H51XRXKJ", "B0HCPTTXSC"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-last-lobby",
+  },
+  {
+    slug: "the-lattice",
+    title: "The Lattice",
+    subtitle: "The Blackout Covenant",
+    asins: ["B0HG7Y16D3", "B0HG7ZG216"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-lattice",
+  },
+  {
+    slug: "the-lattice-2",
+    title: "The Lattice",
+    subtitle: "The Inheritance Protocol",
+    asins: ["B0HG2T6L6V"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-lattice-2",
+  },
+  {
+    slug: "the-memory-at-the-end-of-time",
+    title: "The Memory at the End of Time",
+    subtitle: "A Novella of Time Travel and Artificial Intelligence",
+    asins: ["B0HGBVBLV2"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-memory-at-the-end-of-time",
+  },
+  {
+    slug: "the-teeth-of-winter",
+    title: "The Teeth of Winter",
+    subtitle: "A Dragon Chosen and the Hostages Beneath the Wolf Crown",
+    asins: ["B0HFR5M4BM"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-teeth-of-winter",
+  },
+  {
+    slug: "the-waking-debt",
+    title: "The Waking Debt",
+    asins: ["B0HGX8JNP2"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-waking-debt",
+  },
+  {
+    slug: "the-weakening-seal",
+    title: "The Weakening Seal",
+    subtitle: "The Whispering Realms \u2022 Episode 2",
+    asins: ["B0HGD839HJ"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/the-weakening-seal",
+  },
+  {
+    slug: "when-stones-obey",
+    title: "When Stones Obey",
+    subtitle: "A Shepherd's Son and the Secret Beneath the Dragon Throne",
+    asins: ["B0HFKS9F5K", "B0HFKPRXDM"],
+    status: "published",
+    pill: "Fantasy & Speculative Fiction",
+    pillClass: "fiction",
+    filter: "fiction",
+    href: "/book/when-stones-obey",
+  },
+  {
+    slug: "aidan-and-the-butterfly-kingdom",
+    title: "Aidan and the Butterfly Kingdom",
+    subtitle: "A Kingdom of Dreamo Story",
+    asins: ["B0H8TM55KH", "B0H956VRZD"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/aidan-and-the-butterfly-kingdom",
+  },
+  {
+    slug: "aidan-and-the-ember-hollow",
+    title: "Aidan and the Ember Hollow",
+    asins: ["B0HBNG3HZ6", "B0HC19FGTK"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/aidan-and-the-ember-hollow",
+  },
+  {
+    slug: "benny-the-beetle-s-big-dream",
+    title: "Benny the Beetle's Big Dream",
+    subtitle: "A Never-Give-Up Adventure",
+    asins: ["B0GX33SCP4", "B0HCDMQ1YF"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/benny-the-beetle-s-big-dream",
+  },
+  {
+    slug: "cappy-s-cozy-big-adventure",
+    title: "Cappy's Cozy Big Adventure",
+    subtitle: "A Story Coloring Book for Little Explorers",
+    asins: ["B0HD18VYHK"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/cappy-s-cozy-big-adventure",
+  },
+  {
+    slug: "capy-and-the-cozy-cafe",
+    title: "Capy and the Cozy Cafe",
+    subtitle: "A Coloring Storybook",
+    asins: ["B0HD13Q44Z"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/capy-and-the-cozy-cafe",
+  },
+  {
+    slug: "dash-and-the-morning-spark",
+    title: "Dash and the Morning Spark",
+    subtitle: "A story about the power of a good breakfast",
+    asins: ["B0H9HF49C1", "B0H9HWWKB3"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/dash-and-the-morning-spark",
+  },
+  {
+    slug: "dinosaur-trailblazers",
+    title: "Dinosaur Trailblazers",
+    subtitle: "A Journey from Snow to Sunshine",
+    asins: ["B0HDYLZWK2"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/dinosaur-trailblazers",
+  },
+  {
+    slug: "math-adventures-with-tom-the-dinosaur",
+    title: "Math Adventures with Tom the Dinosaur",
+    subtitle: "A Playful Activity Book for Ages 4 to 6 - Counting, Shapes, Patterns, Adding and Taking Away",
+    asins: [],
+    status: "forthcoming",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/math-adventures-with-tom-the-dinosaur",
+  },
+  {
+    slug: "maz-and-the-forest-that-listened",
+    title: "Maz and the Forest That Listened",
+    subtitle: "Book 2",
+    asins: ["B0HD7JL7F1"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/maz-and-the-forest-that-listened",
+  },
+  {
+    slug: "maz-and-the-map-of-whispering-stars",
+    title: "Maz and the Map of Whispering Stars",
+    subtitle: "A Story of Courage, Wonder, and Finding Your Way Home",
+    asins: ["B0HB62P7NN", "B0HBJB58TC"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/maz-and-the-map-of-whispering-stars",
+  },
+  {
+    slug: "my-first-english-adventure",
+    title: "My First English Adventure",
+    subtitle: "Look, Say, Trace, Play - A First English Workbook for Ages 4-6 with the Full Alphabet A-Z, 15 Everyday Themes and 120+ First Words",
+    asins: ["B0HGL4ZMWS"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/my-first-english-adventure",
+  },
+  {
+    slug: "ready-set-learn",
+    title: "Ready, Set, Learn!",
+    subtitle: "The Big Get-Ready-for-School Workbook for Ages 4-6",
+    asins: ["B0HH8BDVR2"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/ready-set-learn",
+  },
+  {
+    slug: "rexy-s-lost-egg",
+    title: "Rexy's Lost Egg",
+    subtitle: "A Dinosaur Adventure Coloring Story Book for Kids Ages 4-8",
+    asins: ["B0HF5DLH9X"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/rexy-s-lost-egg",
+  },
+  {
+    slug: "tasneem-s-glider",
     title: "Tasneem's Glider",
-    meta: "Zahir Hasan · Illustrated · Ages 4 to 8",
-    pill: "Children's",
+    subtitle: "How Persistence Found the Wind",
+    asins: ["B0H9624XX8", "B0H9CQF2D7"],
+    status: "published",
+    pill: "Children's Books",
     pillClass: "kids",
     filter: "kids",
-    coverClass: "cov-glider",
-    coverTag: "A Picture Book",
+    href: "/book/tasneem-s-glider",
   },
   {
-    id: "spiderweb-mystery",
+    slug: "the-code-of-the-cosmic-compass",
+    title: "The Code of the Cosmic Compass",
+    subtitle: "An M1Z3 Adventure",
+    asins: ["B0HBMQ9MQ9", "B0HBRC7GXZ"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/the-code-of-the-cosmic-compass",
+  },
+  {
+    slug: "the-great-dino-journey",
+    title: "The Great Dino Journey",
+    subtitle: "Helping Friends to the Warm Lands",
+    asins: ["B0HCWF5QGR"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/the-great-dino-journey",
+  },
+  {
+    slug: "the-little-robo",
+    title: "The Little Robo",
+    subtitle: "A Story About Being Small, Being Different, and Being Brave",
+    asins: ["B0H8VY5XYM", "B0H8XV9SHK"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/the-little-robo",
+  },
+  {
+    slug: "the-secret-of-high-park",
+    title: "The Secret of High Park",
+    subtitle: "A Toronto Mystery Duo Adventure",
+    asins: ["B0HCNC1QKP", "B0HCQ13N78"],
+    status: "published",
+    pill: "Children's Books",
+    pillClass: "kids",
+    filter: "kids",
+    href: "/book/the-secret-of-high-park",
+  },
+  {
+    slug: "the-spiderweb-mystery",
     title: "The Spiderweb Mystery",
-    meta: "Zahir Hasan · Illustrated · Ages 4 to 8",
-    pill: "Children's",
+    subtitle: "Curiosity is a Superpower",
+    asins: ["B0H958QBVP", "B0H9HJF5P2"],
+    status: "published",
+    pill: "Children's Books",
     pillClass: "kids",
     filter: "kids",
-    coverClass: "cov-spider",
-    coverTag: "A Picture Book",
+    href: "/book/the-spiderweb-mystery",
   },
-  {
-    id: "forthcoming",
-    title: "Next From the Press",
-    meta: "Announcements via our newsletter",
-    pill: "Forthcoming",
-    pillClass: "soon",
-    filter: "soon",
-    coverClass: "cov-soon",
-    coverTag: "In Preparation",
-  },
-];
+].map((b) => ({ ...b, coverImg: LOCAL_COVERS[b.slug] })) as CatalogEntry[];
+
+export function bookBySlug(slug: string): CatalogEntry | undefined {
+  return CATALOG.find((b) => b.slug === slug);
+}
+
+export function amazonUrl(asin: string): string {
+  return `https://www.amazon.com/dp/${asin}`;
+}
 
 export function CatalogCard({ book }: { book: CatalogEntry }) {
   const inner = (
@@ -74,36 +701,37 @@ export function CatalogCard({ book }: { book: CatalogEntry }) {
           <img src={book.coverImg} alt={`${book.title} cover`} />
         </div>
       ) : (
-        <div className={`cover mock ${book.coverClass ?? ""}`}>
-          <div className="mtag" style={book.filter === "soon" ? { opacity: 0.9 } : undefined}>
-            {book.coverTag}
-          </div>
-          <div
-            className="mtit"
-            style={book.filter === "soon" ? { color: "#8a7440" } : undefined}
-          >
-            {book.filter === "soon" ? "Your Next Title" : book.title}
-          </div>
-          <div
-            className="mauth"
-            style={book.filter === "soon" ? { color: "#8a7440", opacity: 1 } : undefined}
-          >
-            {book.filter === "soon" ? "Coming Soon" : "Zahir Hasan"}
-          </div>
+        <div className={`cover mock ${book.pillClass}`}>
+          <div className="mtag">{CATEGORY_LABELS[book.pillClass]}</div>
+          <div className="mtit">{book.title}</div>
+          <div className="mauth">Zahir Hasan</div>
         </div>
       )}
       <span className={`pill ${book.pillClass}`}>{book.pill}</span>
       <h3>{book.title}</h3>
-      <div className="meta">{book.meta}</div>
+      <div className="meta">
+        {book.subtitle ? <span className="sub">{book.subtitle}</span> : null}
+        <span>
+          Zahir Hasan
+          {book.status === "forthcoming" ? " · Forthcoming" : ""}
+        </span>
+      </div>
     </>
   );
 
-  if (book.href) {
-    return (
-      <Link to={book.href} className="card">
-        {inner}
-      </Link>
-    );
-  }
-  return <div className="card">{inner}</div>;
+  return (
+    <Link to={book.href} className="card">
+      {inner}
+    </Link>
+  );
 }
+
+/**
+ * The home page shows one title from each list rather than all sixty —
+ * a shelf, not an inventory.
+ */
+export const FEATURED: CatalogEntry[] = (
+  ["a-manufactured-war", "the-ashen-veil-saga", "tasneem-s-glider", "the-ai-classroom"]
+    .map((slug) => bookBySlug(slug))
+    .filter(Boolean) as CatalogEntry[]
+);

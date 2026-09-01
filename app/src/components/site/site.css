@@ -302,3 +302,51 @@
   text-decoration:none }
 .site .tklink:hover{ background:var(--accent-dark) }
 .site .tklink:focus-visible{ outline:2px solid var(--ink); outline-offset:2px }
+
+/* ── Catalogue: four lists, 60 titles, generated book pages ─────────────── */
+.site .pill.practice{background:#e6e9f0;color:#3a4a63;}
+.site .pill.fiction{background:#efe4ee;color:#5f3559;}
+
+/* Mock covers, tinted per list so a shelf of 60 still reads as sorted. */
+.site .cover.mock.policy{background:linear-gradient(160deg,#6e2419,#2f1a14);}
+.site .cover.mock.practice{background:linear-gradient(160deg,#3a4a63,#1d2534);}
+.site .cover.mock.fiction{background:linear-gradient(160deg,#5f3559,#2a172a);}
+.site .cover.mock.kids{background:linear-gradient(160deg,#3c5f33,#1d2e1a);}
+
+.site .catcount{font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;
+  color:var(--ink-soft);margin:-18px 0 26px;}
+.site .card .meta .sub{display:block;margin-bottom:3px;color:var(--ink-soft);opacity:.85;}
+
+/* Book page */
+.site .pagehead .booksub{font-family:var(--serif);font-size:19px;font-style:italic;
+  color:var(--ink-soft);margin:10px 0 0;max-width:680px;}
+.site .bookpage{padding:52px 0 76px;}
+.site .bookgrid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:52px;align-items:start;}
+.site .bookcover img,.site .bookcover .cover.mock{width:100%;aspect-ratio:2/3;object-fit:cover;
+  border-radius:2px;box-shadow:0 2px 4px rgba(28,26,23,.10),0 18px 40px -18px rgba(28,26,23,.35);}
+.site .bookmeta dl{display:grid;grid-template-columns:auto 1fr;gap:10px 26px;margin:0 0 30px;
+  font-family:var(--sans);font-size:14px;}
+.site .bookmeta dt{color:var(--ink-soft);font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;padding-top:3px;}
+.site .bookmeta dd{margin:0;color:var(--ink);}
+.site .buyrow{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;}
+.site .buylink{display:inline-block;font-family:var(--sans);font-size:14px;font-weight:500;
+  background:var(--accent);color:#fff;padding:12px 22px;border-radius:2px;text-decoration:none;}
+.site .buylink:hover{background:var(--accent-dark);}
+.site .buylink:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.site .soonnote{font-family:var(--sans);font-size:14px;color:#8a5a21;background:#f6ebdd;
+  padding:12px 14px;border-left:3px solid currentColor;margin-bottom:26px;}
+.site .backlink{font-family:var(--sans);font-size:13.5px;}
+.site .backlink a{color:var(--ink-soft);text-decoration:none;}
+.site .backlink a:hover{color:var(--accent);}
+.site .alsoin{margin-top:60px;padding-top:28px;border-top:1px solid var(--line);}
+.site .alsoin h2{font-size:19px;font-weight:600;margin:0 0 14px;}
+.site .alsoin ul{list-style:none;padding:0;margin:0;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px 32px;}
+.site .alsoin a{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--line);display:inline-block;padding-bottom:2px;}
+.site .alsoin a:hover{color:var(--accent);border-color:var(--accent);}
+@media(max-width:820px){
+  .site .bookgrid{grid-template-columns:1fr;gap:30px;}
+  .site .bookcover{max-width:240px;}
+}

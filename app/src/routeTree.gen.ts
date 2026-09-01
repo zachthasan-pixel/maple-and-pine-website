@@ -21,6 +21,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolkitIndexRouteImport } from './routes/toolkit.index'
 import { Route as ToolkitPrintCoverRouteImport } from './routes/toolkit.print-cover'
 import { Route as ToolkitInteriorLayoutRouteImport } from './routes/toolkit.interior-layout'
+import { Route as BookSlugRouteImport } from './routes/book.$slug'
 import { Route as ApiStatsRouteImport } from './routes/api/stats'
 
 const TheArabDilemmaRoute = TheArabDilemmaRouteImport.update({
@@ -83,6 +84,11 @@ const ToolkitInteriorLayoutRoute = ToolkitInteriorLayoutRouteImport.update({
   path: '/toolkit/interior-layout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookSlugRoute = BookSlugRouteImport.update({
+  id: '/book/$slug',
+  path: '/book/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStatsRoute = ApiStatsRouteImport.update({
   id: '/api/stats',
   path: '/api/stats',
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
   '/api/stats': typeof ApiStatsRoute
+  '/book/$slug': typeof BookSlugRoute
   '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
   '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
   '/toolkit/': typeof ToolkitIndexRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
   '/api/stats': typeof ApiStatsRoute
+  '/book/$slug': typeof BookSlugRoute
   '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
   '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
   '/toolkit': typeof ToolkitIndexRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/submissions': typeof SubmissionsRoute
   '/the-arab-dilemma': typeof TheArabDilemmaRoute
   '/api/stats': typeof ApiStatsRoute
+  '/book/$slug': typeof BookSlugRoute
   '/toolkit/interior-layout': typeof ToolkitInteriorLayoutRoute
   '/toolkit/print-cover': typeof ToolkitPrintCoverRoute
   '/toolkit/': typeof ToolkitIndexRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
     | '/submissions'
     | '/the-arab-dilemma'
     | '/api/stats'
+    | '/book/$slug'
     | '/toolkit/interior-layout'
     | '/toolkit/print-cover'
     | '/toolkit/'
@@ -163,6 +173,7 @@ export interface FileRouteTypes {
     | '/submissions'
     | '/the-arab-dilemma'
     | '/api/stats'
+    | '/book/$slug'
     | '/toolkit/interior-layout'
     | '/toolkit/print-cover'
     | '/toolkit'
@@ -178,6 +189,7 @@ export interface FileRouteTypes {
     | '/submissions'
     | '/the-arab-dilemma'
     | '/api/stats'
+    | '/book/$slug'
     | '/toolkit/interior-layout'
     | '/toolkit/print-cover'
     | '/toolkit/'
@@ -194,6 +206,7 @@ export interface RootRouteChildren {
   SubmissionsRoute: typeof SubmissionsRoute
   TheArabDilemmaRoute: typeof TheArabDilemmaRoute
   ApiStatsRoute: typeof ApiStatsRoute
+  BookSlugRoute: typeof BookSlugRoute
   ToolkitInteriorLayoutRoute: typeof ToolkitInteriorLayoutRoute
   ToolkitPrintCoverRoute: typeof ToolkitPrintCoverRoute
   ToolkitIndexRoute: typeof ToolkitIndexRoute
@@ -285,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolkitInteriorLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book/$slug': {
+      id: '/book/$slug'
+      path: '/book/$slug'
+      fullPath: '/book/$slug'
+      preLoaderRoute: typeof BookSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/stats': {
       id: '/api/stats'
       path: '/api/stats'
@@ -306,6 +326,7 @@ const rootRouteChildren: RootRouteChildren = {
   SubmissionsRoute: SubmissionsRoute,
   TheArabDilemmaRoute: TheArabDilemmaRoute,
   ApiStatsRoute: ApiStatsRoute,
+  BookSlugRoute: BookSlugRoute,
   ToolkitInteriorLayoutRoute: ToolkitInteriorLayoutRoute,
   ToolkitPrintCoverRoute: ToolkitPrintCoverRoute,
   ToolkitIndexRoute: ToolkitIndexRoute,

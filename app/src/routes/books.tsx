@@ -11,7 +11,7 @@ export const Route = createFileRoute("/books")({
       {
         name: "description",
         content:
-          "Every book published by Maple & Pine Press: nonfiction on policy and international affairs, and illustrated children's books.",
+          "Every book published by Maple & Pine Press: politics and international affairs, education and practice, fantasy and speculative fiction, and illustrated children's books.",
       },
     ],
   }),
@@ -20,14 +20,16 @@ export const Route = createFileRoute("/books")({
 
 const FILTERS = [
   { key: "all", label: "All Titles" },
-  { key: "policy", label: "Politics & Current Affairs" },
+  { key: "policy", label: "Politics & International Affairs" },
+  { key: "practice", label: "Education & Practice" },
+  { key: "fiction", label: "Fantasy & Speculative Fiction" },
   { key: "kids", label: "Children's Books" },
-  { key: "soon", label: "Forthcoming" },
 ] as const;
 
 function Books() {
   const [filter, setFilter] = useState<string>("all");
   const shown = CATALOG.filter((b) => filter === "all" || b.filter === filter);
+  const count = shown.length;
 
   return (
     <SiteLayout>
@@ -35,8 +37,8 @@ function Books() {
         <div className="wrap">
           <h1>The Catalog</h1>
           <p>
-            Every book we publish, across both of our lists. Each title page includes a full
-            description, publication details, and where to buy.
+            Every book we publish, across all four of our lists. Each title has its own page
+            with publication details and where to buy.
           </p>
         </div>
       </div>
@@ -52,9 +54,12 @@ function Books() {
             </button>
           ))}
         </div>
+        <p className="catcount">
+          {count} {count === 1 ? "title" : "titles"}
+        </p>
         <div className="grid" style={{ paddingBottom: 72 }}>
           {shown.map((book) => (
-            <CatalogCard key={book.id} book={book} />
+            <CatalogCard key={book.slug} book={book} />
           ))}
         </div>
       </div>
