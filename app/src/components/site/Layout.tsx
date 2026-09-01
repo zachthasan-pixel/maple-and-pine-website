@@ -10,7 +10,7 @@ const ORG_JSONLD = JSON.stringify({
   url: "https://mapleandpinepress.com",
   logo: "https://mapleandpinepress.com/assets/favicon.png",
   description:
-    "Independent press in Tokyo publishing serious nonfiction and illustrated children's books.",
+    "Independent press in Tokyo publishing politics, education, fantasy fiction and illustrated children's books.",
   founder: { "@type": "Person", name: "Zahir Hasan" },
 });
 
@@ -61,8 +61,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <div>
               <div className="fmark">MAPLE & PINE PRESS</div>
               <p style={{ maxWidth: 280 }}>
-                An independent press in Tokyo, publishing serious nonfiction and illustrated
-                children's books for readers worldwide.
+                An independent press in Tokyo, publishing politics, education, fantasy fiction
+                and illustrated children's books for readers worldwide.
               </p>
             </div>
             <div>

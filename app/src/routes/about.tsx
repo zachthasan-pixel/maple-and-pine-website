@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Maple & Pine Press is an independent press founded in Tokyo by Dr. Zahir Hasan, publishing serious nonfiction and illustrated children's books.",
+          "Maple & Pine Press is an independent press founded in Tokyo by Dr. Zahir Hasan, publishing politics and international affairs, education, fantasy fiction, and illustrated children's books.",
       },
     ],
   }),
@@ -23,8 +23,8 @@ function About() {
         <div className="wrap">
           <h1>About Maple & Pine Press</h1>
           <p>
-            An independent press founded in Tokyo, publishing serious nonfiction and beautiful
-            children's books with equal care.
+            An independent press founded in Tokyo, publishing across four lists — politics,
+            education, fiction, and children's books — with equal care given to each.
           </p>
         </div>
       </div>
@@ -45,14 +45,19 @@ function About() {
               want in every book we make.
             </p>
             <p>
-              We publish across two lists. Our <b>nonfiction list</b> takes on questions of
-              policy, law, and international affairs with analytical rigor and a commitment to
-              evidence over polemic. Our <b>children's list</b> produces warmly illustrated
-              picture books that respect young readers.
+              We publish across four lists. <b>Politics &amp; International Affairs</b> takes on
+              questions of policy, law, and security with analytical rigor and a commitment to
+              evidence over polemic. <b>Education &amp; Practice</b> is written for teachers,
+              students and working professionals — classroom practice, artificial intelligence,
+              study skills, everyday law. <b>Fantasy &amp; Speculative Fiction</b> runs from
+              epic fantasy to near-future science fiction. And our <b>children's list</b>
+              produces warmly illustrated picture books and early-learning workbooks that
+              respect young readers.
             </p>
             <p>
-              Every title is distributed worldwide in ebook and print, and we are now opening
-              our doors to other authors whose work deserves the same careful treatment.
+              Sixty titles are now in print. Every one is distributed worldwide in ebook and
+              paperback, and we are opening our doors to other authors whose work deserves the
+              same careful treatment.
             </p>
             <h2 style={{ marginTop: 36 }}>What We Believe</h2>
             <p>
@@ -67,8 +72,8 @@ function About() {
             <div className="role">Founder &amp; Publisher</div>
             <p style={{ color: "#4a453e", fontSize: 15.5, marginBottom: 18 }}>
               A Canadian academic based in Tokyo, Dr. Hasan teaches at the university level and
-              writes across policy, law, and children's literature. His education spans the
-              United States and Europe.
+              writes across policy, law, education, fiction, and children's literature. His
+              education spans the United States and Europe.
             </p>
             <div className="creds">
               <span>B.A. Economics &amp; Political Science</span>
