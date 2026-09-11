@@ -15,6 +15,7 @@ export type CatalogEntry = {
   pillClass: BookCategory;
   filter: BookCategory;
   coverImg?: string;
+  coverFit?: "contain";
   href: string;
 };
 
@@ -29,7 +30,73 @@ export const CATEGORY_LABELS: Record<BookCategory, string> = {
 const LOCAL_COVERS: Record<string, string> = {
   "a-manufactured-war": "/assets/manufactured-war-cover.jpg",
   "the-arab-dilemma": "/assets/arab-dilemma-cover.jpg",
+  "a-court-of-knives": "/assets/covers/a-court-of-knives.jpg",
+  "a-land-unknown": "/assets/covers/a-land-unknown.jpg",
+  "a-throne-of-cinders": "/assets/covers/a-throne-of-cinders.jpg",
+  "aidan-and-the-butterfly-kingdom": "/assets/covers/aidan-and-the-butterfly-kingdom.jpg",
+  "aidan-and-the-ember-hollow": "/assets/covers/aidan-and-the-ember-hollow.jpg",
+  "benny-the-beetle-s-big-dream": "/assets/covers/benny-the-beetle-s-big-dream.jpg",
+  "canada-at-the-crossroads": "/assets/covers/canada-at-the-crossroads.jpg",
+  "cappy-s-cozy-big-adventure": "/assets/covers/cappy-s-cozy-big-adventure.jpg",
+  "capy-and-the-cozy-cafe": "/assets/covers/capy-and-the-cozy-cafe.jpg",
+  "critical-thinking-in-the-age-of-ai": "/assets/covers/critical-thinking-in-the-age-of-ai.jpg",
+  "dash-and-the-morning-spark": "/assets/covers/dash-and-the-morning-spark.jpg",
+  "dinosaur-trailblazers": "/assets/covers/dinosaur-trailblazers.jpg",
+  "elbows-up": "/assets/covers/elbows-up.jpg",
+  "english-for-academic-purposes": "/assets/covers/english-for-academic-purposes.jpg",
+  "grit-unplugged": "/assets/covers/grit-unplugged.jpg",
+  "japan-s-secret-war": "/assets/covers/japan-s-secret-war.jpg",
+  "japan-s-strategic-awakening": "/assets/covers/japan-s-strategic-awakening.jpg",
+  "japans-unavoidable-choice": "/assets/covers/japans-unavoidable-choice.jpg",
+  "law-for-everyday-life": "/assets/covers/law-for-everyday-life.jpg",
+  "math-adventures-with-tom-the-dinosaur": "/assets/covers/math-adventures-with-tom-the-dinosaur.jpg",
+  "maz-and-the-forest-that-listened": "/assets/covers/maz-and-the-forest-that-listened.jpg",
+  "maz-and-the-map-of-whispering-stars": "/assets/covers/maz-and-the-map-of-whispering-stars.jpg",
+  "my-first-english-adventure": "/assets/covers/my-first-english-adventure.jpg",
+  "nato-at-the-breaking-point": "/assets/covers/nato-at-the-breaking-point.jpg",
+  "pakistan-s-unfinished-democratic-transition": "/assets/covers/pakistan-s-unfinished-democratic-transition.jpg",
+  "power-beyond-position": "/assets/covers/power-beyond-position.jpg",
+  "project-based-learning-in-action": "/assets/covers/project-based-learning-in-action.jpg",
+  "ready-set-learn": "/assets/covers/ready-set-learn.jpg",
+  "rexy-s-lost-egg": "/assets/covers/rexy-s-lost-egg.jpg",
+  "taiwan-at-the-fault-line": "/assets/covers/taiwan-at-the-fault-line.jpg",
+  "take-back-your-hours": "/assets/covers/take-back-your-hours.jpg",
+  "tasneem-s-glider": "/assets/covers/tasneem-s-glider.jpg",
+  "the-ai-classroom": "/assets/covers/the-ai-classroom.jpg",
+  "the-ashen-veil-saga": "/assets/covers/the-ashen-veil-saga.jpg",
+  "the-breaking-of-american-democracy": "/assets/covers/the-breaking-of-american-democracy.jpg",
+  "the-chronicles-of-aethelgard": "/assets/covers/the-chronicles-of-aethelgard.jpg",
+  "the-code-of-the-cosmic-compass": "/assets/covers/the-code-of-the-cosmic-compass.jpg",
+  "the-elk-kingdom": "/assets/covers/the-elk-kingdom.jpg",
+  "the-exiles-blood": "/assets/covers/the-exiles-blood.jpg",
+  "the-first-shadow": "/assets/covers/the-first-shadow.jpg",
+  "the-great-dino-journey": "/assets/covers/the-great-dino-journey.jpg",
+  "the-high-tower-of-glass": "/assets/covers/the-high-tower-of-glass.jpg",
+  "the-house-beneath-the-ash": "/assets/covers/the-house-beneath-the-ash.jpg",
+  "the-last-lobby": "/assets/covers/the-last-lobby.jpg",
+  "the-lattice": "/assets/covers/the-lattice.jpg",
+  "the-lattice-2": "/assets/covers/the-lattice-2.jpg",
+  "the-little-robo": "/assets/covers/the-little-robo.jpg",
+  "the-memory-at-the-end-of-time": "/assets/covers/the-memory-at-the-end-of-time.jpg",
+  "the-permanent-suspect": "/assets/covers/the-permanent-suspect.jpg",
+  "the-politics-of-removal": "/assets/covers/the-politics-of-removal.jpg",
+  "the-secret-of-high-park": "/assets/covers/the-secret-of-high-park.jpg",
+  "the-sovereignty-of-truth": "/assets/covers/the-sovereignty-of-truth.jpg",
+  "the-spiderweb-mystery": "/assets/covers/the-spiderweb-mystery.jpg",
+  "the-teeth-of-winter": "/assets/covers/the-teeth-of-winter.jpg",
+  "the-waking-debt": "/assets/covers/the-waking-debt.jpg",
+  "the-weakening-seal": "/assets/covers/the-weakening-seal.jpg",
+  "university-students-and-artificial-intelligence": "/assets/covers/university-students-and-artificial-intelligence.jpg",
+  "when-stones-obey": "/assets/covers/when-stones-obey.jpg",
 };
+
+/** Square or landscape covers: show whole image instead of cropping to 5:8. */
+const WIDE_COVERS = new Set<string>([
+  "cappy-s-cozy-big-adventure", "capy-and-the-cozy-cafe", "dash-and-the-morning-spark",
+  "math-adventures-with-tom-the-dinosaur", "my-first-english-adventure", "ready-set-learn",
+  "rexy-s-lost-egg", "tasneem-s-glider", "the-chronicles-of-aethelgard", "the-elk-kingdom",
+  "the-great-dino-journey", "the-spiderweb-mystery",
+]);
 
 export const CATALOG: CatalogEntry[] = [
   {
@@ -744,7 +811,11 @@ export const CATALOG: CatalogEntry[] = [
     filter: "kids",
     href: "/book/the-spiderweb-mystery",
   },
-].map((b) => ({ ...b, coverImg: LOCAL_COVERS[b.slug] })) as CatalogEntry[];
+].map((b) => ({
+  ...b,
+  coverImg: LOCAL_COVERS[b.slug],
+  coverFit: WIDE_COVERS.has(b.slug) ? ("contain" as const) : undefined,
+})) as CatalogEntry[];
 
 export function bookBySlug(slug: string): CatalogEntry | undefined {
   return CATALOG.find((b) => b.slug === slug);
@@ -758,8 +829,8 @@ export function CatalogCard({ book }: { book: CatalogEntry }) {
   const inner = (
     <>
       {book.coverImg ? (
-        <div className="cover">
-          <img src={book.coverImg} alt={`${book.title} cover`} />
+        <div className={`cover${book.coverFit ? " contain" : ""}`}>
+          <img src={book.coverImg} alt={`${book.title} cover`} loading="lazy" />
         </div>
       ) : (
         <div className={`cover mock ${book.pillClass}`}>

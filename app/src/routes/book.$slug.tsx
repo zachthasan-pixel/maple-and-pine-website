@@ -53,7 +53,11 @@ function BookPage() {
         <div className="bookgrid">
           <div className="bookcover">
             {book.coverImg ? (
-              <img src={book.coverImg} alt={`${book.title} cover`} />
+              <img
+                className={book.coverFit ? "contain" : undefined}
+                src={book.coverImg}
+                alt={`${book.title} cover`}
+              />
             ) : (
               <div className={`cover mock ${book.pillClass}`}>
                 <div className="mtag">{CATEGORY_LABELS[book.pillClass]}</div>
