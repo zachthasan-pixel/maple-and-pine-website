@@ -1,0 +1,30 @@
+# Triggers the author-site rebuild whenever catalog/ changes on main.
+#
+# The author site (zachthasan-pixel.github.io) has its own daily sync,
+# but this speeds it up: new books appear on drzahirhasan.com within
+# minutes of being pushed here instead of waiting until 03:17 Tokyo.
+#
+# Requires a repo secret AUTHOR_SITE_PAT — a GitHub Personal Access Token
+# with `repo` scope on zachthasan-pixel/zachthasan-pixel.github.io.
+name: Trigger author-site rebuild on catalogue change
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "catalog/**"
+
+jobs:
+  trigger-author-site:
+    runs-on: ubuntu-latest
+    if: github.repository == 'zachthasan-pixel/maple-and-pine-website'
+    steps:
+      - name: Dispatch author-site sync
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.AUTHOR_SITE_PAT }}
+          repository: zachthasan-pixel/zachthasan-pixel.github.io
+          event-type: catalog-updated
+
+      - name: Log
+        run: echo "Dispatched author-site rebuild for catalogue change in ${{ github.sha }}"

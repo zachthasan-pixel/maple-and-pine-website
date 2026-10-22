@@ -1040,7 +1040,10 @@
    ],
    "cover": "covers/a-court-of-knives.jpg",
    "coverFit": null,
-   "series": null,
+   "series": {
+    "name": "The Draconate Saga",
+    "order": 2
+   },
    "isbn": {
     "paperback": null,
     "hardcover": null
@@ -1087,7 +1090,10 @@
    ],
    "cover": "covers/a-throne-of-cinders.jpg",
    "coverFit": null,
-   "series": null,
+   "series": {
+    "name": "The Draconate Saga",
+    "order": 1
+   },
    "isbn": {
     "paperback": null,
     "hardcover": null
@@ -1376,7 +1382,10 @@
    ],
    "cover": "covers/the-house-beneath-the-ash.jpg",
    "coverFit": null,
-   "series": null,
+   "series": {
+    "name": "The Witnesses Cycle",
+    "order": 1
+   },
    "isbn": {
     "paperback": null,
     "hardcover": null
@@ -1457,7 +1466,7 @@
    "coverFit": null,
    "series": {
     "name": "The Lattice",
-    "order": 1
+    "order": 2
    },
    "isbn": {
     "paperback": null,
@@ -1499,7 +1508,7 @@
    "coverFit": null,
    "series": {
     "name": "The Lattice",
-    "order": 2
+    "order": 1
    },
    "isbn": {
     "paperback": null,
@@ -1568,7 +1577,10 @@
    ],
    "cover": "covers/the-teeth-of-winter.jpg",
    "coverFit": null,
-   "series": null,
+   "series": {
+    "name": "The Fourfold Throne Saga",
+    "order": 2
+   },
    "isbn": {
     "paperback": null,
     "hardcover": null
@@ -1604,7 +1616,10 @@
    ],
    "cover": "covers/the-waking-debt.jpg",
    "coverFit": null,
-   "series": null,
+   "series": {
+    "name": "The Shadowfire Throne",
+    "order": 2
+   },
    "isbn": {
     "paperback": null,
     "hardcover": null
@@ -1681,7 +1696,10 @@
    ],
    "cover": "covers/when-stones-obey.jpg",
    "coverFit": null,
-   "series": null,
+   "series": {
+    "name": "The Fourfold Throne Saga",
+    "order": 1
+   },
    "isbn": {
     "paperback": null,
     "hardcover": null
