@@ -32,7 +32,9 @@
 
 .site-header{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
 .site .hwrap{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px;}
-.site .wordmark{cursor:pointer;user-select:none;line-height:1.1;text-decoration:none;color:var(--ink);display:block;}
+.site .wordmark{cursor:pointer;user-select:none;line-height:1.1;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:13px;}
+.site .wm-shield{display:block;flex:none;height:46px;width:auto;}
+.site .wm-text{display:block;}
 .site .wm1{display:block;font-size:21px;letter-spacing:.22em;font-weight:700;}
 .site .wm2{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.42em;color:var(--accent);text-transform:uppercase;margin-top:2px;}
 .site nav{display:flex;gap:6px;font-family:var(--sans);align-items:center;}
@@ -220,7 +222,26 @@
   .site .hero h1{font-size:34px;}
   .site nav a{padding:8px 8px;font-size:12px;}
   .site .hwrap{flex-direction:column;height:auto;padding:14px 16px;gap:10px;}
+  .site .wm-shield{height:38px;}
   .site-header{position:static;}
+}
+
+/* The Arms (shield) sits left of the text wordmark. The header bar is capped at
+   1120px, so the shield's extra width would otherwise push "Browse Catalog" onto
+   a second line on ordinary desktop widths: tighten wordmark and nav at the base
+   desktop size, and hide the subtitle below 1060px. */
+@media(min-width:881px){
+  .site .wm-shield{height:42px;}
+  .site .wordmark{gap:11px;}
+  .site .wm1{font-size:19px;letter-spacing:.155em;}
+  .site .wm2{font-size:9.5px;letter-spacing:.28em;}
+  .site nav{gap:2px;}
+  .site nav a{padding:10px 10px;font-size:13px;}
+}
+@media(max-width:1060px) and (min-width:881px){
+  .site .wm2{display:none;}
+  .site .wm-shield{height:38px;}
+  .site nav a{padding:9px 7px;font-size:12.5px;letter-spacing:.03em;}
 }
 
 /* ── Author Toolkit: Print Cover Studio + Interior Layout Studio ──────────

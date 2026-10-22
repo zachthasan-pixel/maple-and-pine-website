@@ -8,7 +8,7 @@ const ORG_JSONLD = JSON.stringify({
   "@type": "Organization",
   name: "Maple & Pine Press",
   url: "https://mapleandpinepress.com",
-  logo: "https://mapleandpinepress.com/assets/favicon.png",
+  logo: "https://mapleandpinepress.com/assets/logo/mpp-appicon-512.png",
   description:
     "Independent press in Tokyo publishing politics, education, fantasy fiction and illustrated children's books.",
   founder: { "@type": "Person", name: "Zahir Hasan" },
@@ -24,8 +24,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <header className="site-header">
         <div className="hwrap">
           <Link to="/" className="wordmark" aria-label="Maple & Pine Press home">
-            <span className="wm1">MAPLE&nbsp;&amp;&nbsp;PINE&nbsp;PRESS</span>
-            <span className="wm2">Independent&nbsp;Press&nbsp;·&nbsp;Tokyo</span>
+            <img
+              className="wm-shield"
+              src="/assets/logo/mpp-shield.svg"
+              alt=""
+              width={132}
+              height={180}
+              decoding="async"
+            />
+            <span className="wm-text">
+              <span className="wm1">MAPLE&nbsp;&amp;&nbsp;PINE&nbsp;PRESS</span>
+              <span className="wm2">Independent&nbsp;Press&nbsp;·&nbsp;Tokyo</span>
+            </span>
           </Link>
           <nav aria-label="Main">
             <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "active" }}>

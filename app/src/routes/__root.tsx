@@ -95,7 +95,10 @@ function buildHead(meta: AppMeta) {
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      ...(favicon ? [{ rel: "icon", href: favicon }] : []),
+      ...(favicon ? [{ rel: "icon", type: "image/svg+xml", href: favicon }] : []),
+      // PNG fallback for browsers that ignore SVG favicons, plus the iOS home-screen icon.
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/logo/mpp-favicon-square-32.png" },
+      { rel: "apple-touch-icon", href: "/assets/logo/mpp-appicon-180.png" },
     ],
   };
 }
