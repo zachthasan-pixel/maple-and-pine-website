@@ -88,7 +88,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <Link to="/submissions">Submissions</Link>
               <Link to="/toolkit">Author Toolkit</Link>
               <Link to="/beyond-the-press">Beyond the Press</Link>
-              <Link to="/">Newsletter</Link>
+              <a href="/#newsletter">Newsletter</a>
             </div>
             <div>
               <h5>Contact</h5>
@@ -106,6 +106,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   );
 }
 
+const KIT_FORM_ACTION = "https://app.kit.com/forms/10080577/subscriptions";
+
 export function NewsletterBand() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "busy" | "ok" | "err">("idle");
@@ -118,7 +120,20 @@ export function NewsletterBand() {
     }
     setState("busy");
     try {
-      await subscribeNewsletter({ data: { email: value } });
+      // The list itself lives in Kit (form "Maple & Pine Press website").
+      // Same request Kit's own embed script makes, so no key is needed here.
+      const body = new FormData();
+      body.append("email_address", value);
+      body.append("referrer", document.referrer);
+      const res = await fetch(KIT_FORM_ACTION, {
+        method: "POST",
+        body,
+        headers: { Accept: "application/json", "X-CKJS-Version": "6" },
+      });
+      const json = (await res.json()) as { status?: string };
+      if (json.status !== "success" && json.status !== "quarantined") throw new Error("kit");
+      // Keep the local record too (the /api/stats count).
+      void subscribeNewsletter({ data: { email: value } }).catch(() => undefined);
       setState("ok");
     } catch {
       setState("err");
@@ -126,7 +141,7 @@ export function NewsletterBand() {
   }
 
   return (
-    <div className="newsl">
+    <div className="newsl" id="newsletter">
       <div className="wrap">
         <h2>Hear About New Releases First</h2>
         <p>One short email when a new book is published. No noise, no spam. Just the books.</p>
@@ -145,7 +160,7 @@ export function NewsletterBand() {
             {state === "busy" ? "Adding you..." : "Subscribe"}
           </button>
         </div>
-        {state === "ok" && <div className="nlok">Thank you. You are on the list.</div>}
+        {state === "ok" && <div className="nlok">Thank you. Please check your inbox for a confirmation email.</div>}
         {state === "err" && (
           <div className="nlerr">Please check the email address and try again.</div>
         )}
