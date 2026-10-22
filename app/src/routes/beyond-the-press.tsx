@@ -9,7 +9,7 @@ export const Route = createFileRoute("/beyond-the-press")({
       {
         name: "description",
         content:
-          "Other projects from Dr. Zahir Hasan: Movement for Action, Discoverly, BookVoice, and Foldbird.",
+          "Other projects from Dr. Zahir Hasan: Movement for Action, Discoverly, BookVoice, Foldbird, PlayPine, and his author website.",
       },
     ],
   }),
@@ -52,6 +52,24 @@ const PROJECTS = [
       "An app that turns written manuscripts into narrated, illustrated films, with a choice of audience and artistic style and consistent characters throughout.",
     initials: "F",
     tint: "#2e6f8e",
+  },
+  {
+    name: "PlayPine",
+    url: "https://playpine.app",
+    tag: "Game Maker",
+    blurb:
+      "Make a small browser game in an afternoon and publish it the same day. Pick a game shape, choose your characters and settings, and share a link that plays on any phone or computer, or download it for itch.io. No coding, no sign-up.",
+    initials: "PP",
+    tint: "#2f6b4a",
+  },
+  {
+    name: "Dr. Zahir Hasan",
+    url: "https://drzahirhasan.com",
+    tag: "Author Site",
+    blurb:
+      "Dr. Hasan's own author website: the children's fantasy series, the political science and law titles, and a page for his iPhone and iPad apps and browser games.",
+    initials: "ZH",
+    tint: "#3d6b4f",
   },
 ];
 
