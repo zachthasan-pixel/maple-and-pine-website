@@ -27,3 +27,5 @@ Copy one entry, change the words, and put the cover picture in `app/public/asset
 | `isbn` | Maple & Pine ISBNs for print editions of new titles (leave `null` for Amazon-assigned ones) |
 | `press` | how the book appears on mapleandpinepress.com: its page, category label, home-page shelf |
 | `authorSite` | how it appears on drzahirhasan.com: section, one-line blurb, home-page feature, Amazon Japan link |
+
+<!-- Auto-deploy to Cloudflare enabled 2026-10-24: a push to main rebuilds and publishes mapleandpinepress.com. -->
