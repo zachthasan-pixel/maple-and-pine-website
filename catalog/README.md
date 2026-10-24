@@ -29,3 +29,4 @@ Copy one entry, change the words, and put the cover picture in `app/public/asset
 | `authorSite` | how it appears on drzahirhasan.com: section, one-line blurb, home-page feature, Amazon Japan link |
 
 <!-- Auto-deploy to Cloudflare enabled 2026-10-24: a push to main rebuilds and publishes mapleandpinepress.com. -->
+<!-- Build retry 2026-10-24: deploy via bunx wrangler. -->
