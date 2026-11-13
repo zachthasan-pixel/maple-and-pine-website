@@ -6,6 +6,7 @@ import { CATALOG } from '../components/site/catalog'
 const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: string }> = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/books', changefreq: 'weekly', priority: '0.9' },
+  { path: '/paper', changefreq: 'daily', priority: '0.7' },
   { path: '/about', changefreq: 'monthly', priority: '0.6' },
   { path: '/submissions', changefreq: 'monthly', priority: '0.6' },
   { path: '/beyond-the-press', changefreq: 'monthly', priority: '0.5' },
