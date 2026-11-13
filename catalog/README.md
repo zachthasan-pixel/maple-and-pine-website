@@ -20,6 +20,7 @@ Copy one entry, change the words, and put the cover picture in `app/public/asset
 | `list` | `policy`, `practice`, `fiction` or `kids` (see `_lists` at the top) |
 | `status` | `published` or `forthcoming` |
 | `asins` | Amazon codes, ebook first where there are two |
+| `stores` | `{ apple, googlePlay }`: full Apple Books and Google Play Books listing URLs for this exact book, or `null` when there is no listing yet (the button is then hidden) |
 | `description` | the store description, one paragraph per line |
 | `cover` | picture file under `app/public/assets/` |
 | `coverFit` | `"contain"` for square or landscape covers, otherwise `null` |

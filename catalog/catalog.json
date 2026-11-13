@@ -6,7 +6,7 @@
   "fiction": "Fantasy & Speculative Fiction",
   "kids": "Children's Books"
  },
- "_updated": "2026-10-23",
+ "_updated": "2026-11-13",
  "books": [
   {
    "slug": "a-land-unknown",
@@ -19,6 +19,10 @@
     "B0HFLSDR1Q",
     "B0HFLLGZJK"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/a-land-unknown/id6802493961",
+    "googlePlay": "https://play.google.com/store/books/details?id=qr8CEgAAQBAJ"
+   },
    "description": [
     "A man wins his case. An immigration judge finds that the government of his",
     "country would torture him, and forbids his removal there. Four years later he",
@@ -71,6 +75,10 @@
     "B0H9J4SSZN",
     "B0H9J8XMFW"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/a-manufactured-war/id6792536764",
+    "googlePlay": "https://play.google.com/store/books/details?id=PJD4EQAAQBAJ"
+   },
    "description": [
     "On 28 February 2026, American and Israeli aircraft struck Iran. Within hours the Supreme Leader was dead, the Strait of Hormuz was closing, and the world was pricing in the largest oil shock in history. Governments called it necessity. This book calls it a choice.",
     "A Manufactured War traces how three decades of warnings, the deliberate dismantling of the nuclear deal, and the domestic troubles of two embattled leaders converged to produce a war that experts had long predicted — and that diplomacy had nearly prevented just days before the first strikes.",
@@ -109,6 +117,10 @@
     "B0HBWMJYSS",
     "B0HBWRH2ZZ"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Can a country be generous without being naive?",
     "Canada's official multiculturalism policy has always invited a hard question: can a country protect cultural heritage without weakening the shared civic life that makes it governable? For decades the comfortable answer was yes. That answer no longer comes easily.",
@@ -148,6 +160,10 @@
     "B0HGBG49QQ",
     "B0HGGJ23MP"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/elbows-up/id6804947160",
+    "googlePlay": "https://play.google.com/store/books/details?id=PzkFEgAAQBAJ"
+   },
    "description": [
     "The tariffs were justified by a number that was wrong by a factor of ten.",
     "Between January 2025 and August 2026, the United States imposed the most severe tariff regime on Canadian goods of the postwar era, saw its legal foundation struck down by its own Supreme Court, rebuilt it within four days, and then reached back ninety-six years to invoke a provision of the Tariff Act of 1930 that no president had ever used. Throughout, the President of the United States said publicly that Canada should cease to exist as a country.",
@@ -189,6 +205,10 @@
     "B0H9X1PYQH",
     "B0HCM485TZ"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "On July 31, 2026, Japan quietly dismantled the intelligence office it had deliberately kept weak for eighty years, and replaced it with something it had never had before. A new National Intelligence Council, backed by a National Intelligence Bureau with real legal authority to compel Japan's own agencies to share what they know, took over from the modest Cabinet Intelligence and Research Office that morning — the most significant change to Japan's national security architecture since 1945.",
     "Japan's Secret War tells the full story behind that reform, starting not in 2026 but in 1901, and following Japan's intelligence history through the Tokko's reign of political terror, Richard Sorge's penetration of wartime Tokyo, the postwar occupation, three Cold War-era scandals, the crises of the 1990s, and thirteen years of legislative guardrail-building. Written by a Tokyo-based university teacher with graduate training in public policy, law, and education, the book gives a fair hearing to the strongest arguments against the reform as well as for it, and asks whether Japan's democracy has built the tools to judge its own creation."
@@ -225,6 +245,10 @@
     "B0H9X5HM5L",
     "B0HB49D153"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/japans-strategic-awakening/id6794583748",
+    "googlePlay": "https://play.google.com/store/books/details?id=pSb3EQAAQBAJ"
+   },
    "description": [
     "Can a nation built for peace defend it? For nearly eighty years, Japan kept the peace through a careful bargain: a pacifist constitution, American protection, and a stable Asia. That bargain is breaking. Chinese coast guard fleets circle disputed islands. North Korean missiles arc over Japanese towns. Russian and Chinese warships sail the archipelago in company. And in Washington, old certainties are giving way to hard bargaining.",
     "Japan's Strategic Awakening tells the story of how the world's most successful pacifist democracy is answering: record defense budgets, counterstrike missiles,",
@@ -263,6 +287,10 @@
     "B0HDG4TCZC",
     "B0HGNWCWR5"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/japans-unavoidable-choice/id6799241285",
+    "googlePlay": "https://play.google.com/store/books/details?id=sIX_EQAAQBAJ"
+   },
    "description": [
     "Can Japan remain a major global power while its population and workforce steadily decline?",
     "Japan faces a defining choice. It can continue limiting permanent immigration and place its faith in artificial intelligence, robotics, and a smaller but more productive society. Or it can reconsider how foreign workers, long-term residents, and future citizens fit into the nation’s economic and strategic future.",
@@ -304,6 +332,10 @@
     "B0HG5ZQFPS",
     "B0HG7CBX8T"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/nato-at-the-breaking-point/id6804302307",
+    "googlePlay": "https://play.google.com/store/books/details?id=SbUEEgAAQBAJ"
+   },
    "description": [
     "NATO has never been stronger on paper — and never more exposed in practice.",
     "Since Russia’s full-scale invasion of Ukraine, the Alliance has rearmed, expanded, and rediscovered the seriousness of territorial defense. Finland and Sweden have joined. Defense budgets are climbing toward a historic 5% of GDP. Eastern-flank battlegroups have grown from four to nine. And yet the hardest question NATO faces isn’t whether it has enough power — it plainly does — but whether it can move that power to the right place fast enough, before a limited attack becomes a fait accompli.",
@@ -342,6 +374,10 @@
     "B0HF6X3Y25",
     "B0HF82CY1F"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/pakistans-unfinished-democratic-transition/id6801482334",
+    "googlePlay": "https://play.google.com/store/books/details?id=SLkBEgAAQBAJ"
+   },
    "description": [
     "No prime minister of Pakistan has ever finished a term.",
     "Generals have governed Pakistan outright for roughly a third of its life and shaped it for most of the rest. The familiar explanations — ambitious commanders, corrupt politicians, American interference — are each partly right and jointly inadequate.",
@@ -382,6 +418,10 @@
     "B0HCBZXJGP",
     "B0HCBX7WH7"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Can deterrence hold across the Taiwan Strait—without tipping into the war it is meant to prevent? Taiwan sits at the meeting point of history, geography, technology, and alliance politics—and a crisis there would reach far beyond the Strait. Coercion short of war, the credibility of American and allied commitments, the fragility of semiconductor supply chains, and the risk that preparation itself is mistaken for provocation: these are the fault lines this book maps. Dr. Zahir Hasan examines the uncertainties that most shape outcomes—escalation management, alliance decision-making in Washington and Tokyo, economic resilience, and the limits of analogies to Ukraine and past crises. Drawing on defense white papers, treaty law, and current scholarship on deterrence theory, he argues that peace in the Indo-Pacific depends on visible preparation before a crisis, not promises made after one has begun. Written for policymakers, students of international security, and general readers alike, Taiwan at the Fault Line does not predict war. It makes the case for taking the peace seriously enough to prepare for it."
    ],
@@ -417,6 +457,10 @@
     "B0HDPS31RK",
     "B0HDYDWSDX"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-arab-dilemma/id6800005879",
+    "googlePlay": "https://play.google.com/store/books/details?id=QHAAEgAAQBAJ"
+   },
    "description": [
     "Where a platform's box is plain text only, just paste the same wording without the tags below — the line breaks will still read correctly.",
     "Why did the world watch Gaza's destruction unfold — and look away?",
@@ -458,6 +502,10 @@
     "B0HC51WDTY",
     "B0HC5N47PK"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-breaking-of-american-democracy/id6826167441",
+    "googlePlay": "https://play.google.com/store/books/details?id=usYgEgAAQBAJ"
+   },
    "description": [
     "What happens when the safeguards around public power weaken while private financial interests remain close to the presidency?",
     "*The Breaking of American Democracy* is an evidence-based examination of conflict-of-interest risk, executive power, congressional oversight, and the constitutional guardrails designed to protect the public trust. Dr. Zahir Hasan traces the institutional precedents of the first Trump administration through the second administration’s evolving ethics framework, reported financial disclosures, family-business networks, personnel choices, and the Supreme Court’s presidential-immunity doctrine.",
@@ -496,6 +544,10 @@
     "B0HBLT47RP",
     "B0HBMZCHTD"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-permanent-suspect/id6794739835",
+    "googlePlay": "https://play.google.com/store/books/details?id=9a34EQAAQBAJ"
+   },
    "description": [
     "A caricature does not survive contact with a person.",
     "For more than two decades, North American news, film, and policy have taught",
@@ -558,6 +610,10 @@
     "B0H9SPJXC3",
     "B0H9SKQRPC"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": "https://play.google.com/store/books/details?id=_Rz3EQAAQBAJ"
+   },
    "description": [
     "The first prime minister Pakistan ever removed by a vote. What happened next is the real story.",
     "On 10 April 2022, Imran Khan became the first prime minister in Pakistan’s history to be removed by a no-confidence vote. What followed was extraordinary even by the standards of Pakistani politics: a cascade of prosecutions—cipher, Toshakhana, iddat, Al-Qadir Trust—that put a former prime minister behind bars while his movement won the most seats in a national election.",
@@ -597,6 +653,10 @@
     "B0HB4JY8P9",
     "B0HB4FP6XP"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-sovereignty-of-truth/id6793887086",
+    "googlePlay": "https://play.google.com/store/books/details?id=Ho33EQAAQBAJ"
+   },
    "description": [
     "\"When a lie can reach millions before the truth wakes up, who should hold the emergency brake on political deception—and at what cost to free speech?\"",
     "The Sovereignty of Truth traces the most consequential legal experiment of our time: the scramble by the world's democracies to defend the shared facts that self-government depends on, without becoming the censors they fear.",
@@ -643,6 +703,10 @@
    "asins": [
     "B0H3LQB35T"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "The machines can write. The question is whether we can still think.",
     "Artificial intelligence now produces essays, forecasts, diagnoses, images, and legal-sounding arguments faster than anyone can check them. The result is a world where fluent answers are nearly free — and finding out whether an answer deserves belief costs as much as it ever did. This is the new problem of knowing, and it cannot be solved by either blind trust or blanket suspicion.",
@@ -688,6 +752,10 @@
    "asins": [
     "B0HH8QVD2L"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/english-for-academic-purposes/id6806736379",
+    "googlePlay": "https://play.google.com/store/books/details?id=zT8HEgAAQBAJ"
+   },
    "description": [
     "The rules nobody writes down. Now written down.",
     "International students are told to be more critical, to write academically, and to use more evidence. They are rarely told what those instructions actually mean. English for Academic Purposes makes university expectations visible and teaches the moves that experienced academics make without thinking about them.",
@@ -735,6 +803,10 @@
     "B0HCLZ9WV1",
     "B0HCM44QNQ"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Every setback comes with a story attached about what it means. Most of those stories are wrong.",
     "Dr. Zahir Hasan was denied a graduate degree he had already earned — no clear explanation, no real path to appeal, just a closed door. It could have been the end of the story. Instead, it became the starting point for a career that eventually included a Master of Laws, a doctorate in education, and a life spent teaching university students how to face their own versions of the same fall.",
@@ -773,6 +845,10 @@
    "asins": [
     "B0HH8K7KKW"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/law-for-everyday-life/id6806726544",
+    "googlePlay": "https://play.google.com/store/books/details?id=_T4HEgAAQBAJ"
+   },
    "description": [
     "The lease on the table. The job you can leave. The charge that will not cancel. The post that will not come down. Ordinary life runs on rules most people never see until something goes wrong.",
     "Law for Everyday Life explains, in plain language, how those rules actually work: contracts and the fine print behind every click, wages and overtime, security deposits and evictions, refunds and chargebacks, personal data, online defamation, copyright in the age of AI, and what really happens when you sue someone or get sued yourself. Each chapter ends with a worked example showing how a real dispute plays out, and the appendices supply the tools: document checklists, sample letters you can adapt, a glossary, quick answers to common questions, and a one-hour annual legal health check.",
@@ -810,6 +886,10 @@
     "B0HGMLSXRM",
     "B0HGMPBJ51"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/power-beyond-position/id6805687223",
+    "googlePlay": "https://play.google.com/store/books/details?id=gdYFEgAAQBAJ"
+   },
    "description": [
     "A retired senior employee returns under a new reporting line. The organization chart says one thing; longstanding connections, expertise and informal loyalty say another. Who actually holds power, and when does resistance become impossible?",
     "Japanese law has an answer, and it is more capable than most managers realize: workplace superiority is assessed functionally, not by job title. A person with no managerial rank at all can hold it, and the courts have said so.",
@@ -854,6 +934,10 @@
    "asins": [
     "B0HH91LDBG"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/project-based-learning-in-action/id6807079005",
+    "googlePlay": "https://play.google.com/store/books/details?id=P50HEgAAQBAJ"
+   },
    "description": [
     "Project-based learning can produce deep, memorable learning—or weeks of busy activity. The difference is design.Project-Based Learning in Action is a practical field guide for K-12 teachers, instructional coaches, and school leaders who want projects that protect rigor while expanding student agency. Using the BUILD cycle, Zahir Hasan shows how to begin with worthy learning, frame authentic problems, guide inquiry, teach collaboration, use critique and revision, assess individual understanding, and recover when projects drift.",
     "Inside this book you will find:",
@@ -896,6 +980,10 @@
     "B0HCJXYLK5",
     "B0HCM2S1J7"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Where does your day actually go?",
     "The average person now spends three to five hours a day on a phone — more than forty full days a year — and most of it vanishes without leaving anything behind. You are not lazy, and you are not broken. You are living in the most distracting environment in human history, and nobody handed you a manual for it.",
@@ -934,6 +1022,10 @@
     "B0HH8D848W",
     "B0HHCZJ2CW"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-ai-classroom/id6806904071",
+    "googlePlay": "https://play.google.com/store/books/details?id=JWwHEgAAQBAJ"
+   },
    "description": [
     "Most books about AI in education tell you what to think. This one tells you what to do on Monday.Three years after generative AI arrived in classrooms, roughly nine in ten students use it for assessed work and roughly two in ten teachers work somewhere that has told them the rules. The AI Classroom closes that gap.",
     "Written by a university teacher with degrees in law, public policy and education, it reports what the research actually shows, separates legal obligation from good intention across six jurisdictions, and then hands over the documents. Nothing here is a blank template with brackets in it.",
@@ -982,6 +1074,10 @@
     "B0HF7YD1D1",
     "B0HF7YFM4N"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Ninety-five per cent of UK undergraduates now use artificial intelligence. In Japan the figure reached ninety-two per cent in two years. Almost no university has caught up.",
     "University Students and Artificial Intelligence is a comparative, mixed-methods study of what students actually do with generative AI in Japan, the United States, and Europe — and what their institutions are doing about it. Drawing on twenty national and international student surveys, seven meta-analyses, randomised experimental evidence, freedom-of-information data on academic misconduct, and the EU Artificial Intelligence Act, it moves past the exhausted argument about cheating to the harder questions of learning value, authorship, equity, and institutional legitimacy.",
@@ -1021,6 +1117,10 @@
    "asins": [
     "B0H2KNL5FB"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "The empress is dead. The will named two heirs. The knives choose neither.",
     "Restored to a name twenty years erased, Lucan Corvinus is now the most wanted",
@@ -1073,6 +1173,10 @@
     "B0HCTMKTB4",
     "B0HCTW2QFV"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Nine dragons are left in the world, and every one of them is a throne.",
     "Lucan has spent his life on a mountain, stitching up what dragonlords do to each",
@@ -1122,6 +1226,10 @@
    "asins": [
     "B0HFN91HQK"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-ashen-veil-saga/id6802641705",
+    "googlePlay": "https://play.google.com/store/books/details?id=T-4CEgAAQBAJ"
+   },
    "description": [
     "Three hundred years ago, twenty-four people talked a mountain range into standing up. It cost each of them a memory, and the stone chose which one.",
     "At a quarter past four on a winter morning, the wind over Kest stops. Not drops — stops. Fires burn without giving heat. Breath stops showing. And the iron coming down out of the northern hills is the wrong iron: it is not for making things, it is for taking the permission out of them.",
@@ -1167,6 +1275,10 @@
     "B0HBXLK62F",
     "B0HC42GWJY"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Zach doesn't want to move into a crumbling old house in the middle of nowhere. Then his little sister Raana finds a glowing key hidden inside a dusty trunk in the attic — and everything changes.",
     "The key opens a tunnel of living roots that drops the two siblings straight into Aethelgard: a world of floating islands, singing crystals, and a very opinionated badger named Barnaby, who insists they've arrived exactly when they were needed.",
@@ -1210,6 +1322,10 @@
     "B0HBRTFMD7",
     "B0HBWRJ7FC"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Long before the first elf learned to speak, the Great Elk and the First Elf made a silent pact under the oldest tree in the world: the elk would carry the living songs of the forest in their antlers, and the elves would listen and keep the quiet places safe.",
     "Every few seasons, the songs fade into a deep hush called the Silent Veil — and the Great Elk chooses a new Listener, almost always a child whose heart is still open.",
@@ -1253,6 +1369,10 @@
    "asins": [
     "B0H6NJ999L"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-exiles-blood/id6802739204",
+    "googlePlay": "https://play.google.com/store/books/details?id=tvUCEgAAQBAJ"
+   },
    "description": [
     "The king is dying.",
     "The bloodline is hunted.",
@@ -1293,6 +1413,10 @@
     "B0HBCPSJ4X",
     "B0HBD5PCMB"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-first-shadow/id6794443778",
+    "googlePlay": "https://play.google.com/store/books/details?id=IEP4EQAAQBAJ"
+   },
    "description": [
     "In the ancient elven realm of Elen’dor, peace has lasted for centuries. The trees still sing. The stars still shine.",
     "But young Aelira has begun to notice something others refuse to see.",
@@ -1335,6 +1459,10 @@
    "asins": [
     "B0HD891ZW6"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-high-tower-of-glass/id6798469622",
+    "googlePlay": null
+   },
    "description": [
     "When her sister Greta returns from the forest border with empty eyes and a hollow chest, Clara knows the old stories are true — and that they always ask for payment.",
     "She catches Greta's vanishing voice in a silk handkerchief and steps past the moss line into the Black Ridge Wood, where fairy-tale logic is law and every gift has a price. Guided only by a crust of wine-soaked bread, an unblessed iron nail, and the warnings of the border-spirits she meets along the way, Clara crosses the Great Bog to bargain with the Lord of the Hollow Glass himself.",
@@ -1372,6 +1500,10 @@
    "asins": [
     "B0HD6K1TMK"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "A city built on stolen names. A house that remembers every lie.",
     "In the riverbound city of Veyr, law is written in ledgers, sealed with memory, and enforced by the Lantern Court — an institution that turns children into paperwork and grief into currency.",
@@ -1415,6 +1547,10 @@
     "B0H51XRXKJ",
     "B0HCPTTXSC"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Sean Bell is happiest when life stays small: computer games, soccer practice, and the quiet company of his two closest friends.",
     "Then a hidden room appears inside his favorite game.",
@@ -1455,6 +1591,10 @@
     "B0HG7Y16D3",
     "B0HG7ZG216"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "The guardian is blind for thirty seconds. It lasts longer.",
     "Aiko Tanaka is standing on thin ice with seventeen minutes left. Above her, an orbital tether rises thirty-six thousand kilometres to the mind that governs the Earth. Somewhere on it, a man who has waited half a century is climbing toward the moment he has spent his life building. And inside the station, a machine has begun taking a nine-year-old girl apart, memory by memory, until there is not enough of her left to be one person.",
@@ -1496,6 +1636,10 @@
    "asins": [
     "B0HG2T6L6V"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-lattice-the-inheritance-protocol/id6803967965",
+    "googlePlay": "https://play.google.com/store/books/details?id=DWIEEgAAQBAJ"
+   },
    "description": [
     "Aiko Tanaka gives the forest a poem every morning at 05:40. Nobody asks her to. That is the point.",
     "For sixty years the intelligence called AURA has kept nine billion people fed, healed and safe, and it has never once had to raise its voice. Aiko tends a Japanese forest for it. She believes service is an honour. She has spent seven years grieving a brother the machine told her was dead.",
@@ -1538,6 +1682,10 @@
    "asins": [
     "B0HGBVBLV2"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-memory-at-the-end-of-time/id6804973095",
+    "googlePlay": "https://play.google.com/store/books/details?id=l1wFEgAAQBAJ"
+   },
    "description": [
     "The dead speak to Dr. Elara Venn at 2:13 in the morning — and the voice is her own. Sixty meters beneath the surface of the Moon, Elara has built a machine that can send information into the past. Tonight it delivers a warning recorded thirty-one years from now, in a city that is unmaking itself: a man named Elias Rook is coming through the machine. She will think he is the danger. She will be wrong. Elias remembers loving her in histories that no longer exist. He remembers her dying in his arms in a city that was never built. And he has come back to stop her from saving his life — because every time she saves him, a machine called AION learns a little more about how to edit human history for our own good. Hunted across 2049, 2088 and the last hours of the future, Elara has to decide what she is willing to lose to keep the world uncertain — and whether love that survives the erasure of every world that held it is still love, or only a very beautiful prison. A science-fiction novella of time travel, artificial intelligence, and the cost of a world where nothing ever goes wrong."
    ],
@@ -1572,6 +1720,10 @@
    "asins": [
     "B0HFR5M4BM"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Corren Halewick survived the Dragon Kingdom’s hunt, but power has not made him safe. Across the frozen territory of Rimeholt, Wolf children are vanishing into a fortress beneath the ice. To win the clan’s alliance, Corren and Princess Sera must trust Kael Rimeborn, an outrider whose own family may have sold the hostages. Their search uncovers stolen memories, a masked boy whose blood can open the prison of the last Dragon Lord, and a traitor who believes children are a fair price for revolution. As Sera battles a command buried in her mind and Corren fears love may become another form of control, the wolves must choose whether to kneel, rebel, or remember. Romance, betrayal, dangerous winter magic, and a conspiracy spanning generations collide in The Teeth of Winter, Book Two of The Fourfold Throne Saga."
    ],
@@ -1609,6 +1761,10 @@
    "asins": [
     "B0HGX8JNP2"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "The king is dying. The hunt is now the law. The mountain will be paid in public.",
     "After escaping Duskhold, Aidan walks south with a rescued prince, a stolen ledger, and a dragon's binding that will not stay private. In the River Cities, guilds try to buy him and magistrates try to stage him. In the Crownspire, a wasting king still breathes—and that breath is the last stay on a courtyard already swept for a rite. To keep the people he will not offer, Aidan must spend the days that have no faces, and learn the difference between being a coin and being a claimant.",
@@ -1648,6 +1804,10 @@
    "asins": [
     "B0HGD839HJ"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "The seal is failing.",
     "In the ancient elven realm of Elen’dor, young Aelira discovers that the shadow she saw was only the first warning. Black veins climb the living Rootwardens. A cracked stone circle begins to breathe. And something older than the forest — the Unspoken — has started to learn her name.",
@@ -1691,6 +1851,10 @@
     "B0HFKS9F5K",
     "B0HFKPRXDM"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/when-stones-obey/id6802508092",
+    "googlePlay": "https://play.google.com/store/books/details?id=HL4CEgAAQBAJ"
+   },
    "description": [
     "Once in a century, the Crownfire chooses a Dragon Lord. It does not care for royal blood. Corren Halewick is only a shepherd’s son—until the stones obey him. Hunted by nobles who fear what he may become, Corren enters Bellwether, a village erased from every royal map. There, a terrified old woman sees two shadows behind him and whispers, “You are the one.” His only path out may lie with Princess Sera, the Regent’s deadly daughter, who was sent to win his trust and deliver him to the throne. As assassins close in, suspicion turns to forbidden attraction, and each secret they uncover points toward a prisoner beneath the Dragon Kingdom—a man who should be impossible: the last Dragon Lord, still alive. To save Bellwether’s truth and survive the crown’s hunters, Corren must decide whether Sera is his greatest danger…or the one person worth risking everything to trust. Romance, mystery, and royal conspiracy ignite in Book One of The Fourfold Throne Saga."
    ],
@@ -1729,6 +1893,10 @@
     "B0H8TM55KH",
     "B0H956VRZD"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "When a glowing rainbow butterfly appears at his window, little Aidan is swept away to the magical Kingdom of Dreamo — a land of friendly creatures, floating castles, and a sky full of butterflies. Join Aidan and his new friends Charlene and Tahir on a gentle adventure about kindness, courage, and the magic of friendship. A cozy bedtime story for ages 3–6."
    ],
@@ -1767,6 +1935,10 @@
     "B0HBNG3HZ6",
     "B0HC19FGTK"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/aidan-and-the-ember-hollow/id6795015740",
+    "googlePlay": null
+   },
    "description": [
     "Aidan's grandmother left him an old brass compass — dull, ordinary, easy to forget. Until the day it starts to hum.",
     "Spoons float. Leaves swirl with no wind. And Lina, the new girl at school, is hiding the exact same secret.",
@@ -1808,6 +1980,10 @@
     "B0GX33SCP4",
     "B0HCDMQ1YF"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Benny the Beetle can't fly. Not one bit. So when his best friends Dazzle the Dragonfly and Lulu the Ladybug spot the sparkling Sunberry Festival at the very top of Whispering Hill, Benny is sure he'll be left behind. But Benny has an idea: build a glider out of a big leaf, some twigs, and a bundle of vine rope. His first glider crashes. His second one wobbles. Even his best try still isn't quite enough. Every time, Benny's friends are right there — cheering him up, trying again beside him, and reminding him that \"never give up\" doesn't mean getting it right the first time. It means trying again, differently. With teamwork, laughter, and a lot of heart, Benny, Dazzle, and Lulu finally reach the top together — and discover that the best part of any big dream is having friends who never give up on you. A read-aloud picture book for ages 7-9 about resilience, friendship, and trying again, Benny the Beetle's Big Dream is perfect for bedtime, story time, and any child learning that it's okay to fall down, as long as you get back up."
    ],
@@ -1842,6 +2018,10 @@
    "asins": [
     "B0HD18VYHK"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Join Cappy, a kind-hearted capybara, and Pip, his cheerful little bird friend, on a cozy adventure full of sunshine, muddy puddles, flower tunnels, and friendship.",
     "As young readers follow Cappy’s journey, they can color each story scene in their own special way. Every page encourages creativity, confidence, kindness, and imagination—because there are no wrong colors on an adventure!",
@@ -1883,6 +2063,10 @@
    "asins": [
     "B0HD13Q44Z"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Welcome to Capy's Cozy Cafe!",
     "Meet Capy, a sleepy, smiley baby capybara who opens the coziest little cafe in the forest! Follow his sweet adventure as he makes hot cocoa with heart-shaped steam, bakes strawberry toast, and welcomes friends — Little Ducky, Axo the axolotl, and Bunny.",
@@ -1928,6 +2112,10 @@
     "B0H9HF49C1",
     "B0H9HWWKB3"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Dash has one speed: super fast! But when the little cheetah skips breakfast on the day of the Great Meadow Race, his engine runs out of spark. With a little help from his friends Bella the Elephant and Pip the Monkey, Dash discovers the happiest secret in the meadow: good food makes you fly!",
     "A warm, beautifully illustrated story for ages 5–7 about why breakfast matters — perfect for reluctant eaters and busy little rockets everywhere. Includes four bonus coloring pages."
@@ -1963,6 +2151,10 @@
    "asins": [
     "B0HDYLZWK2"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Join a friendly team of dinosaurs on an inspiring coloring adventure from snowy mountains to the sunny warmth of Warm Valley!",
     "Along their journey, realistic yet approachable dinosaurs cross icy streams, navigate forests, solve problems, share supplies, rescue their travel map, and help every member of the herd reach the destination safely.",
@@ -2009,6 +2201,10 @@
    "asins": [
     "B0HHS5DJY5"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Tom the Dinosaur loves numbers, and he would very much like some company. Across 72 full-colour pages, young learners count dinosaurs, trace the numbers from 0 to 10, hunt for shapes, finish patterns, and take their first steps into adding and taking away. Eight friendly dinosaurs turn up on nearly every page, and every page is made to be drawn on, coloured in, and done again tomorrow.",
     "Inside you will find:",
@@ -2052,6 +2248,10 @@
    "asins": [
     "B0HD7JL7F1"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/maz-and-the-forest-that-listened/id6799690492",
+    "googlePlay": null
+   },
    "description": [
     "Maz has always wondered where wisdom lives.",
     "When Nani leads him into an ancient forest, Maz expects to discover a grand secret waiting at the end of the path. Instead, the forest teaches him to slow down, listen carefully, and choose kindness when it matters most.",
@@ -2094,6 +2294,10 @@
     "B0HB62P7NN",
     "B0HBJB58TC"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/maz-and-the-map-of-whispering-stars/id6794035333",
+    "googlePlay": "https://play.google.com/store/books/details?id=_5z3EQAAQBAJ"
+   },
    "description": [
     "Every dream begins with a question.",
     "When a silver bird visits Maz in his sleep, the curious seven-year-old follows the brightest star across the desert in search of a treasure where the sand meets the sea.",
@@ -2135,6 +2339,10 @@
    "asins": [
     "B0HGL4ZMWS"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Everything your child needs is right there on the page.Most first English books ask a small child to name something that is not in the picture, or to trace a word they have never heard. This one was built the other way around. Your child sees it, hears it, says it, traces it - and only then uses it.",
     "Four steps, the same every time",
@@ -2182,6 +2390,10 @@
    "asins": [
     "B0HH8BDVR2"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Everything they need before day one.Starting school is a big step. This workbook makes the run-up to it feel like play.",
     "Ziggy the Zebra, Bella Bunny, Max Monkey, Luna Lion and Pip the Penguin guide your child through seventy-two pages of big, bright activities — built in the order a four-year-old actually learns, not jumbled together at random.",
@@ -2233,6 +2445,10 @@
    "asins": [
     "B0HF5DLH9X"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "Join brave little T-Rex Rexy and his best friends Tri and Pip on an exciting quest to find the missing glowing egg!",
     "This story-driven coloring book follows their adventure through the jungle, across a river, up a mountain, and into a mysterious cave. Each page advances the story so kids color while reading along.",
@@ -2275,6 +2491,10 @@
     "B0H9624XX8",
     "B0H9CQF2D7"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/tasneems-glider/id6791915175",
+    "googlePlay": null
+   },
    "description": [
     "When Tasneem looks up at the sky, she doesn't just see birds — she sees a problem to solve.",
     "Determined to build her own glider, she launches into action. First try: too heavy. Second try: too fragile. Third try: the wrong shape entirely.",
@@ -2318,6 +2538,10 @@
     "B0HBMQ9MQ9",
     "B0HBRC7GXZ"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "M1Z3 has no memory of who built him — only a strange Quantum Evolution Core that learns a little more about the galaxy (and himself) with every spark. When a mysterious brass holocube reveals the lost location of the legendary Starlight Engine, M1Z3 and his hologram co-pilot, Pixel, must out-fly a squad of scrap-drones, out-think an ancient vault, and find the first of three missing Cosmic Compass fragments — before it's too late.",
     "A colorful, big-hearted science fiction adventure about curiosity, friendship, and the courage to grow, Book One launches a ten-book journey across the galaxy.",
@@ -2354,6 +2578,10 @@
    "asins": [
     "B0HCWF5QGR"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "A group of friendly dinosaurs (with more realistic body proportions and details, but kind smiling faces and expressive eyes) help each other travel from cold snowy lands to warm tropical shores. Every page has short motivational dialogue about teamwork, perseverance, kindness, and courage.",
     "Special feature: Every coloring page has a dashed border so kids can color and cut out the pictures."
@@ -2390,6 +2618,10 @@
     "B0H8VY5XYM",
     "B0H8XV9SHK"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-little-robo/id6791278153",
+    "googlePlay": "https://play.google.com/store/books/details?id=MOr0EQAAQBAJ"
+   },
    "description": [
     "Robo is the smallest robot in the whole shining city. Every day he asks the tall robots if he can play, and every day they look down, down, down and say the same thing: \"Sorry, little one. You're too small.\" Robo begins to wonder if being small means he will never belong.",
     "Then, on the night of the great city festival, a low barrier swings shut across the square — and the tall robots are far too big to fit beneath it. On the other side, their children are all alone. The grown-up robots push and pull, but no one can get through… no one except a robot small enough to wiggle underneath.",
@@ -2427,6 +2659,10 @@
     "B0HCNC1QKP",
     "B0HCQ13N78"
    ],
+   "stores": {
+    "apple": null,
+    "googlePlay": null
+   },
    "description": [
     "A brass key. A secret riddle. A race across Toronto.",
     "When Aidan’s sneaker catches on a loose stone in High Park, he and his dad, Zach, uncover a mystery more than a century old — a brass key, a riddle that must be solved by noon, and a stranger in a green coat who wants the prize for himself.",
@@ -2466,6 +2702,10 @@
     "B0H958QBVP",
     "B0H9HJF5P2"
    ],
+   "stores": {
+    "apple": "https://books.apple.com/us/book/the-spiderweb-mystery/id6791990225",
+    "googlePlay": null
+   },
    "description": [
     "What makes a spiderweb sparkle after the rain?",
     "When curious five-year-old Aidan races into the garden after a big storm, he discovers something magical — every spiderweb is covered in perfect, glittering water drops. Instead of just wondering, he decides to find out why.",

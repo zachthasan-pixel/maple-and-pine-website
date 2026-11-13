@@ -333,6 +333,9 @@ async function main() {
     list: LIST,
     status: "published",
     asins: asins.length > 1 ? asins : asins,
+    // Apple Books / Google Play Books listing URLs. Fill these in once the
+    // listing is live and verified; a null link simply hides that button.
+    stores: { apple: null, googlePlay: null },
     description: description || ["(Description not available — edit catalog.json to add it.)"],
     cover: coverPath || `covers/${slug}.jpg`,
     coverFit: LIST === "kids" ? "contain" : null,
