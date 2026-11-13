@@ -17,12 +17,14 @@ import { reportHiggsfieldError } from "../lib/higgsfield-error-reporting";
 // repo by the marketplace meta API and read at BUILD time — no runtime fetch.
 // Editing it via the app settings UI rewrites this file and redeploys the app.
 import appMetaJson from "../app-meta.json";
+import { DEFAULT_SHARE_IMAGE, SITE_NAME, TWITTER_CREATOR, absoluteUrl } from "../lib/seo";
 
 declare const __HF_DESIGN_INSPECTOR__: boolean;
 
 // Built-in defaults for any field that isn't set in app-meta.json.
-const DEFAULT_TITLE = "Higgsfield App";
-const DEFAULT_DESCRIPTION = "Higgsfield Generated Project";
+const DEFAULT_TITLE = "Maple & Pine Press";
+const DEFAULT_DESCRIPTION =
+  "Maple & Pine Press is an independent press in Tokyo publishing politics, education, fantasy fiction and illustrated children's books.";
 
 type AppMeta = {
   og_title?: string | null;
@@ -67,9 +69,12 @@ function toOwnAssetUrl(value: string | null | undefined): string | null {
 function buildHead(meta: AppMeta) {
   const title = meta.og_title ?? DEFAULT_TITLE;
   const description = meta.og_description ?? DEFAULT_DESCRIPTION;
-  const ogImage = toOwnAssetUrl(meta.og_image_url);
+  // Share images must be ABSOLUTE for LinkedIn / X / Facebook to fetch them,
+  // so the root-relative asset path is resolved against the production origin.
+  const ogImage = absoluteUrl(toOwnAssetUrl(meta.og_image_url) ?? DEFAULT_SHARE_IMAGE);
   const favicon = toOwnAssetUrl(meta.favicon_url);
-  const ogVideo = toOwnAssetUrl(meta.og_video_url);
+  const ogVideoPath = toOwnAssetUrl(meta.og_video_url);
+  const ogVideo = ogVideoPath ? absoluteUrl(ogVideoPath) : null;
 
   return {
     meta: [
@@ -81,16 +86,14 @@ function buildHead(meta: AppMeta) {
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: ogImage ? "summary_large_image" : "summary" },
-      { name: "twitter:site", content: "@Higgsfield" },
-      ...(ogImage
-        ? [
-            { property: "og:image", content: ogImage },
-            { name: "twitter:image", content: ogImage },
-          ]
-        : []),
-      // Cover video (og:video) — the animated counterpart of og:image; the
-      // Higgsfield feed cards also play it on hover.
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:image", content: ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:creator", content: TWITTER_CREATOR },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: ogImage },
+      // Cover video (og:video) — the animated counterpart of og:image.
       ...(ogVideo ? [{ property: "og:video", content: ogVideo }] : []),
     ],
     links: [
