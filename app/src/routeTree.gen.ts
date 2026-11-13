@@ -13,6 +13,7 @@ import { Route as TheArabDilemmaRouteImport } from './routes/the-arab-dilemma'
 import { Route as SubmissionsRouteImport } from './routes/submissions'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as PaperRouteImport } from './routes/paper'
 import { Route as BooksRouteImport } from './routes/books'
 import { Route as BeyondThePressRouteImport } from './routes/beyond-the-press'
 import { Route as AboutRouteImport } from './routes/about'
@@ -42,6 +43,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
   id: '/robots.txt',
   path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaperRoute = PaperRouteImport.update({
+  id: '/paper',
+  path: '/paper',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BooksRoute = BooksRouteImport.update({
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/beyond-the-press': typeof BeyondThePressRoute
   '/books': typeof BooksRoute
+  '/paper': typeof PaperRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/beyond-the-press': typeof BeyondThePressRoute
   '/books': typeof BooksRoute
+  '/paper': typeof PaperRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/beyond-the-press': typeof BeyondThePressRoute
   '/books': typeof BooksRoute
+  '/paper': typeof PaperRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/submissions': typeof SubmissionsRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/beyond-the-press'
     | '/books'
+    | '/paper'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/submissions'
@@ -168,6 +178,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/beyond-the-press'
     | '/books'
+    | '/paper'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/submissions'
@@ -184,6 +195,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/beyond-the-press'
     | '/books'
+    | '/paper'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/submissions'
@@ -201,6 +213,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BeyondThePressRoute: typeof BeyondThePressRoute
   BooksRoute: typeof BooksRoute
+  PaperRoute: typeof PaperRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SubmissionsRoute: typeof SubmissionsRoute
@@ -240,6 +253,13 @@ declare module '@tanstack/react-router' {
       path: '/robots.txt'
       fullPath: '/robots.txt'
       preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paper': {
+      id: '/paper'
+      path: '/paper'
+      fullPath: '/paper'
+      preLoaderRoute: typeof PaperRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/books': {
@@ -321,6 +341,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BeyondThePressRoute: BeyondThePressRoute,
   BooksRoute: BooksRoute,
+  PaperRoute: PaperRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SubmissionsRoute: SubmissionsRoute,
