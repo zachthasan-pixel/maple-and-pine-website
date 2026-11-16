@@ -2,12 +2,16 @@ import { Link } from "@tanstack/react-router";
 
 export type BookCategory = "policy" | "practice" | "fiction" | "kids";
 
+/** Verified non-Amazon store listings; null when the title isn't listed there. */
+export type BookStores = { apple: string | null; googlePlay: string | null };
+
 export type CatalogEntry = {
   slug: string;
   title: string;
   subtitle?: string;
   /** Amazon ASINs, ebook first where both exist. */
   asins: string[];
+  stores: BookStores;
   /** Publisher description, as it appears on the book's store listing. */
   description?: string[];
   status: "published" | "forthcoming";
@@ -38,6 +42,7 @@ type CatalogJsonBook = {
   list: BookCategory;
   status: "published" | "forthcoming";
   asins: string[];
+  stores?: Partial<BookStores>;
   description: string[];
   cover: string | null;
   coverFit: "contain" | null;
@@ -51,6 +56,7 @@ export const CATALOG: CatalogEntry[] = BOOKS.map((b) => ({
   title: b.title,
   ...(b.subtitle ? { subtitle: b.subtitle } : {}),
   asins: b.asins,
+  stores: { apple: b.stores?.apple ?? null, googlePlay: b.stores?.googlePlay ?? null },
   ...(b.description.length ? { description: b.description } : {}),
   status: b.status,
   pill: b.press.pill,
@@ -63,6 +69,11 @@ export const CATALOG: CatalogEntry[] = BOOKS.map((b) => ({
 
 export function bookBySlug(slug: string): CatalogEntry | undefined {
   return CATALOG.find((b) => b.slug === slug);
+}
+
+/** True when the title has at least one verified Apple Books / Google Play listing. */
+export function hasStoreLinks(stores: BookStores): boolean {
+  return Boolean(stores.apple || stores.googlePlay);
 }
 
 export function amazonUrl(asin: string): string {

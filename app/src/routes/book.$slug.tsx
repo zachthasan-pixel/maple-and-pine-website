@@ -7,6 +7,8 @@ import {
   amazonUrl,
   bookBySlug,
 } from "../components/site/catalog";
+import { StoreLinks } from "../components/site/StoreLinks";
+import { DEFAULT_SHARE_IMAGE, canonicalLink, shareDescription, socialMeta } from "../lib/seo";
 
 export const Route = createFileRoute("/book/$slug")({
   loader: ({ params }) => {
@@ -18,14 +20,25 @@ export const Route = createFileRoute("/book/$slug")({
     const b = loaderData;
     if (!b) return {};
     const full = b.subtitle ? `${b.title}: ${b.subtitle}` : b.title;
+    const description = `${full} — by Zahir Hasan, published by Maple & Pine Press.`;
+    // Share cards use the book's own cover and the opening of its store blurb.
+    const shareText = b.description?.length
+      ? shareDescription(b.description.join(" "))
+      : description;
     return {
       meta: [
         { title: `${b.title} · Maple & Pine Press` },
-        {
-          name: "description",
-          content: `${full} — by Zahir Hasan, published by Maple & Pine Press.`,
-        },
+        { name: "description", content: description },
+        ...socialMeta({
+          title: `${full} by Zahir Hasan`,
+          description: shareText,
+          path: `/book/${b.slug}`,
+          image: b.coverImg ?? DEFAULT_SHARE_IMAGE,
+          imageAlt: b.coverImg ? `Cover of ${b.title} by Zahir Hasan` : undefined,
+          type: "book",
+        }),
       ],
+      links: [canonicalLink(`/book/${b.slug}`)],
     };
   },
   component: BookPage,
@@ -104,6 +117,7 @@ function BookPage() {
                       : "Buy on Amazon"}
                   </a>
                 ))}
+                <StoreLinks stores={book.stores} title={book.title} className="buylink" />
               </div>
             ) : (
               <p className="soonnote">

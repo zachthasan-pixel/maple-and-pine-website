@@ -1,6 +1,14 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { SiteLayout } from "../components/site/Layout";
+import { StoreLinks } from "../components/site/StoreLinks";
+import { bookBySlug, hasStoreLinks } from "../components/site/catalog";
+import { canonicalLink, socialMeta } from "../lib/seo";
+
+const SHARE_DESCRIPTION =
+  "Gaza, Atrocity, and the Politics of Abandonment After October 7. By Zahir Hasan. An analytical, evidence-based account from Maple & Pine Press, Tokyo.";
+
+const BOOK = bookBySlug("the-arab-dilemma");
 
 export const Route = createFileRoute("/the-arab-dilemma")({
   head: () => ({
@@ -11,7 +19,17 @@ export const Route = createFileRoute("/the-arab-dilemma")({
         content:
           "Gaza, Atrocity, and the Politics of Abandonment After October 7. By Zahir Hasan. An analytical, evidence-based account from Maple & Pine Press, Tokyo.",
       },
+      ...socialMeta({
+        title:
+          "The Arab Dilemma: Gaza, Atrocity, and the Politics of Abandonment After October 7 by Zahir Hasan",
+        description: SHARE_DESCRIPTION,
+        path: "/the-arab-dilemma",
+        image: "/assets/arab-dilemma-cover.jpg",
+        imageAlt: "Cover of The Arab Dilemma by Zahir Hasan",
+        type: "book",
+      }),
     ],
+    links: [canonicalLink("/the-arab-dilemma")],
   }),
   component: ArabDilemma,
 });
@@ -81,8 +99,13 @@ function ArabDilemma() {
               <a className="buy" href={AMAZON_URL} target="_blank" rel="noreferrer">
                 Buy on Amazon
               </a>
+              {BOOK ? (
+                <StoreLinks stores={BOOK.stores} title="The Arab Dilemma" className="buy" />
+              ) : null}
             </div>
-            <p className="buynote">Also coming to Apple Books and Google Play Books.</p>
+            {BOOK && hasStoreLinks(BOOK.stores) ? null : (
+              <p className="buynote">Also coming to Apple Books and Google Play Books.</p>
+            )}
             <h4>About the Book</h4>
             <p>
               <b>Why did the world watch Gaza's destruction unfold, and look away?</b>

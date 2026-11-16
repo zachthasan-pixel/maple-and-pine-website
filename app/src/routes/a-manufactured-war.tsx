@@ -1,6 +1,14 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { SiteLayout } from "../components/site/Layout";
+import { StoreLinks } from "../components/site/StoreLinks";
+import { bookBySlug } from "../components/site/catalog";
+import { canonicalLink, socialMeta } from "../lib/seo";
+
+const SHARE_DESCRIPTION =
+  "The Israeli and American Assault on Iran. By Zahir Hasan. Updated through August 2026. The first title from Maple & Pine Press, Tokyo.";
+
+const BOOK = bookBySlug("a-manufactured-war");
 
 export const Route = createFileRoute("/a-manufactured-war")({
   head: () => ({
@@ -11,7 +19,16 @@ export const Route = createFileRoute("/a-manufactured-war")({
         content:
           "The Israeli and American Assault on Iran. By Zahir Hasan. Updated through August 2026. The first title from Maple & Pine Press, Tokyo.",
       },
+      ...socialMeta({
+        title: "A Manufactured War: The Israeli and American Assault on Iran by Zahir Hasan",
+        description: SHARE_DESCRIPTION,
+        path: "/a-manufactured-war",
+        image: "/assets/manufactured-war-cover.jpg",
+        imageAlt: "Cover of A Manufactured War by Zahir Hasan",
+        type: "book",
+      }),
     ],
+    links: [canonicalLink("/a-manufactured-war")],
   }),
   component: ManufacturedWar,
 });
@@ -83,6 +100,9 @@ function ManufacturedWar() {
               <a className="buy" href={AMAZON_JP} target="_blank" rel="noreferrer">
                 Amazon Japan
               </a>
+              {BOOK ? (
+                <StoreLinks stores={BOOK.stores} title="A Manufactured War" className="buy" />
+              ) : null}
             </div>
             <p className="buynote">Available now in ebook and paperback.</p>
             <h4>About the Book</h4>

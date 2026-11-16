@@ -2,8 +2,15 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { NewsletterBand, SiteLayout } from "../components/site/Layout";
 import { FEATURED, CatalogCard } from "../components/site/catalog";
+import { absoluteUrl, canonicalLink } from "../lib/seo";
 
 export const Route = createFileRoute("/")({
+  // Title, description and share image come from the root defaults
+  // (app-meta.json); the home page only pins its canonical URL.
+  head: () => ({
+    meta: [{ property: "og:url", content: absoluteUrl("/") }],
+    links: [canonicalLink("/")],
+  }),
   component: Index,
 });
 
