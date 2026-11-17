@@ -53,9 +53,10 @@ function About() {
               respect young readers.
             </p>
             <p>
-              More than a hundred titles are now in print. Every one is distributed worldwide in ebook and
-              paperback, and we are opening our doors to other authors whose work deserves the
-              same careful treatment.
+              More than a hundred titles are now in print. They are sold worldwide on Amazon,
+              Apple Books and Google Play, and many of the paperbacks are distributed through
+              Ingram to bookshops, Barnes &amp; Noble among them. We are opening our doors to other
+              authors whose work deserves the same careful treatment.
             </p>
             <h2 style={{ marginTop: 36 }}>What We Believe</h2>
             <p>

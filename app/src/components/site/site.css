@@ -356,6 +356,9 @@
   background:var(--accent);color:#fff;padding:12px 22px;border-radius:2px;text-decoration:none;}
 .site .buylink:hover{background:var(--accent-dark);}
 .site .buylink:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+/* the other stores: same shape as the Amazon button, outlined so Amazon stays the first choice */
+.site .buylink-other{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent);}
+.site .buylink-other:hover{background:var(--accent);color:#fff;}
 .site .soonnote{font-family:var(--sans);font-size:14px;color:#8a5a21;background:#f6ebdd;
   padding:12px 14px;border-left:3px solid currentColor;margin-bottom:26px;}
 .site .backlink{font-family:var(--sans);font-size:13.5px;}

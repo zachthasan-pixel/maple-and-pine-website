@@ -8,6 +8,8 @@ export type CatalogEntry = {
   subtitle?: string;
   /** Amazon ASINs, ebook first where both exist. */
   asins: string[];
+  /** The book's own page in other stores, where it is sold there. */
+  stores: StoreLink[];
   /** Publisher description, as it appears on the book's store listing. */
   description?: string[];
   status: "published" | "forthcoming";
@@ -18,6 +20,8 @@ export type CatalogEntry = {
   coverFit?: "contain";
   href: string;
 };
+
+export type StoreLink = { name: string; url: string };
 
 export const CATEGORY_LABELS: Record<BookCategory, string> = {
   policy: "Politics & International Affairs",
@@ -41,16 +45,26 @@ type CatalogJsonBook = {
   description: string[];
   cover: string | null;
   coverFit: "contain" | null;
+  /** Store pages other than Amazon. Older entries may not have this. */
+  links?: { apple?: string | null; google?: string | null };
   press: { href: string; pill: string; featured: boolean; featuredOrder: number | null };
 };
 
 const BOOKS = (catalogJson as { books: CatalogJsonBook[] }).books;
+
+function storeLinks(b: CatalogJsonBook): StoreLink[] {
+  const out: StoreLink[] = [];
+  if (b.links?.apple) out.push({ name: "Apple Books", url: b.links.apple });
+  if (b.links?.google) out.push({ name: "Google Play", url: b.links.google });
+  return out;
+}
 
 export const CATALOG: CatalogEntry[] = BOOKS.map((b) => ({
   slug: b.slug,
   title: b.title,
   ...(b.subtitle ? { subtitle: b.subtitle } : {}),
   asins: b.asins,
+  stores: storeLinks(b),
   ...(b.description.length ? { description: b.description } : {}),
   status: b.status,
   pill: b.press.pill,

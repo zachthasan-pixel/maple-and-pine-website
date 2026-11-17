@@ -47,11 +47,19 @@ function bookData(book: CatalogEntry) {
     description: searchDescription(book),
     ...(book.coverImg ? { image: absoluteUrl(book.coverImg) } : {}),
     // Amazon editions, ebook first where both exist.
-    workExample: book.asins.map((asin, i) => ({
-      "@type": "Book",
-      bookFormat: i === 0 ? "https://schema.org/EBook" : "https://schema.org/Paperback",
-      url: amazonUrl(asin),
-    })),
+    workExample: [
+      ...book.asins.map((asin, i) => ({
+        "@type": "Book",
+        bookFormat: i === 0 ? "https://schema.org/EBook" : "https://schema.org/Paperback",
+        url: amazonUrl(asin),
+      })),
+      // The ebook in the other stores that sell it.
+      ...book.stores.map((store) => ({
+        "@type": "Book",
+        bookFormat: "https://schema.org/EBook",
+        url: store.url,
+      })),
+    ],
   };
 }
 
@@ -134,7 +142,7 @@ function BookPage() {
               <dd>Maple &amp; Pine Press</dd>
             </dl>
 
-            {book.asins.length > 0 ? (
+            {book.asins.length > 0 || book.stores.length > 0 ? (
               <div className="buyrow">
                 {book.asins.map((asin, i) => (
                   <a
@@ -147,6 +155,17 @@ function BookPage() {
                     {book.asins.length > 1 && i === 1
                       ? "Buy the print edition"
                       : "Buy on Amazon"}
+                  </a>
+                ))}
+                {book.stores.map((store) => (
+                  <a
+                    key={store.name}
+                    className="buylink buylink-other"
+                    href={store.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {store.name}
                   </a>
                 ))}
               </div>

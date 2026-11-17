@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
+import { bookBySlug } from "../components/site/catalog";
 import { SiteLayout } from "../components/site/Layout";
 import { pageHead, pageTitle } from "../components/site/seo";
 
@@ -16,7 +17,10 @@ export const Route = createFileRoute("/the-arab-dilemma")({
   component: ArabDilemma,
 });
 
-const AMAZON_URL = "https://www.amazon.com/s?k=The+Arab+Dilemma+Zahir+Hasan&i=stripbooks";
+// The book's own Amazon page (this used to be a search for its title).
+const AMAZON_URL = "https://www.amazon.com/dp/B0HDPS31RK";
+// Its pages in the other stores come from the shared catalogue.
+const STORES = bookBySlug("the-arab-dilemma")?.stores ?? [];
 
 const BOOK_JSONLD = JSON.stringify({
   "@context": "https://schema.org",
@@ -81,8 +85,13 @@ function ArabDilemma() {
               <a className="buy" href={AMAZON_URL} target="_blank" rel="noreferrer">
                 Buy on Amazon
               </a>
+              {STORES.map((store) => (
+                <a key={store.name} className="buy" href={store.url} target="_blank" rel="noreferrer">
+                  {store.name}
+                </a>
+              ))}
             </div>
-            <p className="buynote">Also coming to Apple Books and Google Play Books.</p>
+            <p className="buynote">Available now in ebook and paperback.</p>
             <h4>About the Book</h4>
             <p>
               <b>Why did the world watch Gaza's destruction unfold, and look away?</b>

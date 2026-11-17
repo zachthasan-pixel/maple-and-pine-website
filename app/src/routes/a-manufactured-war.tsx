@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
+import { bookBySlug } from "../components/site/catalog";
 import { SiteLayout } from "../components/site/Layout";
 import { pageHead, pageTitle } from "../components/site/seo";
 
@@ -18,6 +19,8 @@ export const Route = createFileRoute("/a-manufactured-war")({
 
 const AMAZON_COM = "https://www.amazon.com/dp/B0H9J8XMFW";
 const AMAZON_JP = "https://www.amazon.co.jp/dp/B0H9J8XMFW";
+// Its pages in the other stores come from the shared catalogue.
+const STORES = bookBySlug("a-manufactured-war")?.stores ?? [];
 
 const BOOK_JSONLD = JSON.stringify({
   "@context": "https://schema.org",
@@ -83,6 +86,11 @@ function ManufacturedWar() {
               <a className="buy" href={AMAZON_JP} target="_blank" rel="noreferrer">
                 Amazon Japan
               </a>
+              {STORES.map((store) => (
+                <a key={store.name} className="buy" href={store.url} target="_blank" rel="noreferrer">
+                  {store.name}
+                </a>
+              ))}
             </div>
             <p className="buynote">Available now in ebook and paperback.</p>
             <h4>About the Book</h4>
