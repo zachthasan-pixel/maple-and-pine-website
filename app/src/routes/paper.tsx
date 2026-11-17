@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 /* Today's Paper: the press's daily newspaper, Maple & Pine Press.
    Everything here is read at runtime from /paper/editions.json (written by
@@ -17,16 +18,13 @@ type Edition = {
 };
 
 export const Route = createFileRoute("/paper")({
-  head: () => ({
-    meta: [
-      { title: "Today's Paper · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Maple & Pine Press, the press's daily newspaper from Tokyo: world news, politics, technology and business, published every morning as a printable PDF.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("Today's Paper"),
+      description:
+        "Maple & Pine Press, the press's daily newspaper from Tokyo: world news, politics, technology and business, published every morning as a printable PDF.",
+      path: "/paper",
+    }),
   component: Paper,
 });
 

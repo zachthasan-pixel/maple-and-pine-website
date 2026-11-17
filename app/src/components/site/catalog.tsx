@@ -65,6 +65,27 @@ export function bookBySlug(slug: string): CatalogEntry | undefined {
   return CATALOG.find((b) => b.slug === slug);
 }
 
+/** A book's title with its subtitle, as a store would print it. */
+export function fullTitle(book: CatalogEntry): string {
+  return book.subtitle ? `${book.title}: ${book.subtitle}` : book.title;
+}
+
+/**
+ * Other titles from the same list, for onward reading: the ones that follow this
+ * book in the list, wrapping round at the end. Every book is therefore offered
+ * from several other pages, not only the first few of each list.
+ */
+export function neighbours(book: CatalogEntry, count = 4): CatalogEntry[] {
+  const list = CATALOG.filter((b) => b.filter === book.filter);
+  const at = list.findIndex((b) => b.slug === book.slug);
+  if (at < 0) return list.slice(0, count);
+  const out: CatalogEntry[] = [];
+  for (let step = 1; step < list.length && out.length < count; step++) {
+    out.push(list[(at + step) % list.length]);
+  }
+  return out;
+}
+
 export function amazonUrl(asin: string): string {
   return `https://www.amazon.com/dp/${asin}`;
 }

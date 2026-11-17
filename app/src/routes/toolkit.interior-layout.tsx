@@ -2,18 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 export const Route = createFileRoute("/toolkit/interior-layout")({
-  head: () => ({
-    meta: [
-      { title: "Interior Layout Studio · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Set the margins for a paperback interior so the text clears the binding and nothing is trimmed off. A free tool from Maple & Pine Press.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("Interior Layout Studio"),
+      description:
+        "Set the margins for a paperback interior so the text clears the binding and nothing is trimmed off. A free tool from Maple & Pine Press.",
+      path: "/toolkit/interior-layout",
+    }),
   component: InteriorLayoutStudio,
 });
 

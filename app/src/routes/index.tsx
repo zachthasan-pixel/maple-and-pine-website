@@ -2,8 +2,17 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { NewsletterBand, SiteLayout } from "../components/site/Layout";
 import { FEATURED, CatalogCard } from "../components/site/catalog";
+import { pageHead } from "../components/site/seo";
+import appMeta from "../app-meta.json";
 
 export const Route = createFileRoute("/")({
+  // Title and description stay in app-meta.json, where the site settings write them.
+  head: () =>
+    pageHead({
+      title: appMeta.og_title,
+      description: appMeta.og_description,
+      path: "/",
+    }),
   component: Index,
 });
 
@@ -13,8 +22,9 @@ function Index() {
       <div className="hero">
         <div className="wrap">
           <div>
-            <div className="kicker">New from Maple & Pine Press</div>
-            <h1>A Manufactured War</h1>
+            {/* The page's main heading names the press; the featured book is the heading under it. */}
+            <h1 className="kicker hero-h1">New from Maple & Pine Press</h1>
+            <h2 className="hero-title">A Manufactured War</h2>
             <div className="sub">The Israeli and American Assault on Iran</div>
             <p className="blurb">
               On 28 February 2026, American and Israeli aircraft struck Iran. Governments

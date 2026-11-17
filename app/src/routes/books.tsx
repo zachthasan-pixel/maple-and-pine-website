@@ -2,19 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 import { CATALOG, CatalogCard } from "../components/site/catalog";
 
 export const Route = createFileRoute("/books")({
-  head: () => ({
-    meta: [
-      { title: "The Catalog · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Every book published by Maple & Pine Press: politics and international affairs, education and practice, fantasy and speculative fiction, and illustrated children's books.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("The Catalog"),
+      description:
+        "Every book from Maple & Pine Press: politics and international affairs, education and practice, fantasy fiction, and illustrated children's books.",
+      path: "/books",
+    }),
   component: Books,
 });
 

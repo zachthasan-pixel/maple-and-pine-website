@@ -1,18 +1,18 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 export const Route = createFileRoute("/a-manufactured-war")({
-  head: () => ({
-    meta: [
-      { title: "A Manufactured War · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "The Israeli and American Assault on Iran. By Zahir Hasan. Updated through August 2026. The first title from Maple & Pine Press, Tokyo.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("A Manufactured War"),
+      description:
+        "The Israeli and American Assault on Iran. By Zahir Hasan. Updated through August 2026. The first title from Maple & Pine Press, Tokyo.",
+      path: "/a-manufactured-war",
+      image: "/assets/manufactured-war-cover.jpg",
+      type: "book",
+    }),
   component: ManufacturedWar,
 });
 

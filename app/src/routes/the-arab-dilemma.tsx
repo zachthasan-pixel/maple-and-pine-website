@@ -1,18 +1,18 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 export const Route = createFileRoute("/the-arab-dilemma")({
-  head: () => ({
-    meta: [
-      { title: "The Arab Dilemma · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Gaza, Atrocity, and the Politics of Abandonment After October 7. By Zahir Hasan. An analytical, evidence-based account from Maple & Pine Press, Tokyo.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("The Arab Dilemma"),
+      description:
+        "Gaza, Atrocity, and the Politics of Abandonment After October 7. By Zahir Hasan. An analytical, evidence-based account from Maple & Pine Press, Tokyo.",
+      path: "/the-arab-dilemma",
+      image: "/assets/arab-dilemma-cover.jpg",
+      type: "book",
+    }),
   component: ArabDilemma,
 });
 

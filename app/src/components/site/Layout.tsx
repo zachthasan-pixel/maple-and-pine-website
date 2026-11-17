@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { subscribeNewsletter } from "../../lib/api/site.functions";
 import { PressAssistant } from "./Assistant";
+import { AUTHOR_AMAZON_PAGE, AUTHOR_SITE } from "./seo";
 
 const ORG_JSONLD = JSON.stringify({
   "@context": "https://schema.org",
@@ -11,7 +12,13 @@ const ORG_JSONLD = JSON.stringify({
   logo: "https://mapleandpinepress.com/assets/logo/mpp-appicon-512.png",
   description:
     "Independent press in Tokyo publishing politics, education, fantasy fiction and illustrated children's books.",
-  founder: { "@type": "Person", name: "Zahir Hasan" },
+  // The founder is the same person as the author site and the Amazon author page.
+  founder: {
+    "@type": "Person",
+    name: "Zahir Hasan",
+    url: AUTHOR_SITE,
+    sameAs: [AUTHOR_AMAZON_PAGE],
+  },
 });
 
 export function SiteLayout({ children }: { children: ReactNode }) {

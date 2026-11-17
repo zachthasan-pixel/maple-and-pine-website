@@ -1,18 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 export const Route = createFileRoute("/beyond-the-press")({
-  head: () => ({
-    meta: [
-      { title: "Beyond the Press · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Other projects from Dr. Zahir Hasan: Movement for Action, Discoverly, BookVoice, Foldbird, PlayPine, and his author website.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("Beyond the Press"),
+      description:
+        "Other projects from Dr. Zahir Hasan: Movement for Action, Discoverly, BookVoice, Foldbird, PlayPine, and his author website.",
+      path: "/beyond-the-press",
+    }),
   component: BeyondThePress,
 });
 

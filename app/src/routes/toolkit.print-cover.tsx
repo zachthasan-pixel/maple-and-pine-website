@@ -2,18 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 export const Route = createFileRoute("/toolkit/print-cover")({
-  head: () => ({
-    meta: [
-      { title: "Print Cover Studio · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Work out the spine width and full-wrap dimensions for a paperback cover, to Amazon KDP specification. A free tool from Maple & Pine Press.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("Print Cover Studio"),
+      description:
+        "Work out the spine width and full-wrap dimensions for a paperback cover, to Amazon KDP specification. A free tool from Maple & Pine Press.",
+      path: "/toolkit/print-cover",
+    }),
   component: PrintCoverStudio,
 });
 

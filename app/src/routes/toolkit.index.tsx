@@ -2,6 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 import {
   checkSubmissionStatus,
   checkTitle,
@@ -9,16 +10,13 @@ import {
 } from "../lib/api/site.functions";
 
 export const Route = createFileRoute("/toolkit/")({
-  head: () => ({
-    meta: [
-      { title: "Author Toolkit · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Free tools for authors from Maple & Pine Press: title and name checker, AI cover concept studio, royalty and print calculator, print cover and interior layout studios, and submission status.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("Author Toolkit"),
+      description:
+        "Free tools for authors from Maple & Pine Press: a title and name checker, a cover concept studio, a royalty calculator, and print cover and layout studios.",
+      path: "/toolkit",
+    }),
   component: Toolkit,
 });
 

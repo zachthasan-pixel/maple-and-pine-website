@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { CATALOG } from '../components/site/catalog'
+import { SITE_ORIGIN } from '../components/site/seo'
 
 // Pages that exist independently of the catalogue.
 const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: string }> = [
@@ -22,8 +23,9 @@ function escapeXml(s: string): string {
 export const Route = createFileRoute('/sitemap.xml')({
   server: {
     handlers: {
-      GET: async ({ request }) => {
-        const origin = new URL(request.url).origin
+      GET: async () => {
+        // Always the one real address, whichever address the request came in on.
+        const origin = SITE_ORIGIN
         const today = new Date().toISOString().split('T')[0]
 
         const entry = (path: string, changefreq: string, priority: string) =>

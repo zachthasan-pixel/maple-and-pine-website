@@ -1,18 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Maple & Pine Press is an independent press founded in Tokyo by Dr. Zahir Hasan, publishing politics and international affairs, education, fantasy fiction, and illustrated children's books.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("About"),
+      description:
+        "Maple & Pine Press is an independent press founded in Tokyo by Dr. Zahir Hasan. We publish politics, education, fantasy fiction and children's books.",
+      path: "/about",
+    }),
   component: About,
 });
 

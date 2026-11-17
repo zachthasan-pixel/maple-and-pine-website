@@ -2,19 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
+import { pageHead, pageTitle } from "../components/site/seo";
 import { submitManuscriptQuery } from "../lib/api/site.functions";
 
 export const Route = createFileRoute("/submissions")({
-  head: () => ({
-    meta: [
-      { title: "Submissions · Maple & Pine Press" },
-      {
-        name: "description",
-        content:
-          "Submit your manuscript to Maple & Pine Press. We read every submission: nonfiction on policy, law, and current affairs, and children's picture books.",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: pageTitle("Submissions"),
+      description:
+        "Submit your manuscript to Maple & Pine Press. We read every submission: nonfiction on policy, law, and current affairs, and children's picture books.",
+      path: "/submissions",
+    }),
   component: Submissions,
 });
 

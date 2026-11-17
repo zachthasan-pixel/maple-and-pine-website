@@ -13,6 +13,7 @@ import { NotFound } from "@higgsfield/quanta/not-found";
 
 import appCss from "../styles.css?url";
 import { reportHiggsfieldError } from "../lib/higgsfield-error-reporting";
+import { SITE_NAME, absoluteUrl } from "../components/site/seo";
 // Page metadata (browser <title>/favicon + social og: tags) committed into the
 // repo by the marketplace meta API and read at BUILD time — no runtime fetch.
 // Editing it via the app settings UI rewrites this file and redeploys the app.
@@ -67,7 +68,9 @@ function toOwnAssetUrl(value: string | null | undefined): string | null {
 function buildHead(meta: AppMeta) {
   const title = meta.og_title ?? DEFAULT_TITLE;
   const description = meta.og_description ?? DEFAULT_DESCRIPTION;
-  const ogImage = toOwnAssetUrl(meta.og_image_url);
+  // Link previews need the picture's full address; a path alone is not always read.
+  const ownImage = toOwnAssetUrl(meta.og_image_url);
+  const ogImage = ownImage ? absoluteUrl(ownImage) : null;
   const favicon = toOwnAssetUrl(meta.favicon_url);
   const ogVideo = toOwnAssetUrl(meta.og_video_url);
 
@@ -81,8 +84,8 @@ function buildHead(meta: AppMeta) {
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: SITE_NAME },
       { name: "twitter:card", content: ogImage ? "summary_large_image" : "summary" },
-      { name: "twitter:site", content: "@Higgsfield" },
       ...(ogImage
         ? [
             { property: "og:image", content: ogImage },
