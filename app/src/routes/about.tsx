@@ -53,7 +53,7 @@ function About() {
               respect young readers.
             </p>
             <p>
-              Sixty titles are now in print. Every one is distributed worldwide in ebook and
+              More than sixty titles are now in print. Every one is distributed worldwide in ebook and
               paperback, and we are opening our doors to other authors whose work deserves the
               same careful treatment.
             </p>

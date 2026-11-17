@@ -127,7 +127,7 @@ export function CatalogCard({ book }: { book: CatalogEntry }) {
 }
 
 /**
- * The home page shows one title from each list rather than all sixty —
+ * The home page shows one title from each list rather than the whole catalogue —
  * a shelf, not an inventory.
  */
 export const FEATURED: CatalogEntry[] = BOOKS.filter((b) => b.press.featured)
