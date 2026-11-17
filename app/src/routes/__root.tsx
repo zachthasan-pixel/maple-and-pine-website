@@ -13,7 +13,7 @@ import { NotFound } from "@higgsfield/quanta/not-found";
 
 import appCss from "../styles.css?url";
 import { reportHiggsfieldError } from "../lib/higgsfield-error-reporting";
-import { SITE_NAME, absoluteUrl } from "../components/site/seo";
+import { GOOGLE_SITE_VERIFICATION, SITE_NAME, absoluteUrl } from "../components/site/seo";
 // Page metadata (browser <title>/favicon + social og: tags) committed into the
 // repo by the marketplace meta API and read at BUILD time — no runtime fetch.
 // Editing it via the app settings UI rewrites this file and redeploys the app.
@@ -81,6 +81,7 @@ function buildHead(meta: AppMeta) {
       { title },
       { name: "description", content: description },
       { name: "author", content: "Maple & Pine Press" },
+      { name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },

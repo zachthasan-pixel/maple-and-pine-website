@@ -9,6 +9,10 @@ export const SITE_ORIGIN = `https://${SITE_HOST}`;
 export const SITE_NAME = "Maple & Pine Press";
 export const AUTHOR_SITE = "https://drzahirhasan.com/";
 export const AUTHOR_AMAZON_PAGE = "https://www.amazon.com/stores/author/B0H97YZ9GT";
+export const PRESS_FACEBOOK_PAGE = "https://www.facebook.com/p/Maple-Pine-Press-61594670112344/";
+// Proves to Google Search Console that the site's owner runs this site. Not a secret:
+// it is meant to be read from the page. Removing it ends the verification.
+export const GOOGLE_SITE_VERIFICATION = "GsEAi7-oZB28SEvnjAHDWiHcXcm63Pi-D3R-bvjbpYU";
 
 const TITLE_SUFFIX = ` · ${SITE_NAME}`;
 const DEFAULT_IMAGE = "/assets/og-cover.png";
