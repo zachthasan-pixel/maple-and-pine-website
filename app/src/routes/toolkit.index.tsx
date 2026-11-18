@@ -3,11 +3,7 @@ import { useRef, useState } from "react";
 
 import { SiteLayout } from "../components/site/Layout";
 import { pageHead, pageTitle } from "../components/site/seo";
-import {
-  checkSubmissionStatus,
-  checkTitle,
-  generateCoverArt,
-} from "../lib/api/site.functions";
+import { checkTitle, generateCoverArt } from "../lib/api/site.functions";
 
 export const Route = createFileRoute("/toolkit/")({
   head: () =>
@@ -260,10 +256,9 @@ function CoverStudio() {
         </div>
       )}
       <div className="fieldnote" style={{ marginTop: 14 }}>
-        These are concept drafts to explore direction, generated with AI. If you use
-        AI-generated art on a published cover, remember to declare it during store setup, the
-        same way our submission form asks. A print-ready cover with spine and back still needs
-        proper production.
+        These are concept drafts to explore direction, generated with AI. If you use AI-generated
+        art on a published cover, remember to declare it during store setup: Amazon, Apple and
+        Google all ask. A print-ready cover with spine and back still needs proper production.
       </div>
     </div>
   );
@@ -335,66 +330,6 @@ function RoyaltyCalculator() {
   );
 }
 
-function StatusChecker() {
-  const [ref, setRef] = useState("");
-  const [email, setEmail] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [result, setResult] = useState("");
-
-  async function run() {
-    if (!ref.trim() || !email.trim() || busy) return;
-    setBusy(true);
-    setResult("");
-    try {
-      const res = await checkSubmissionStatus({
-        data: { ref: ref.trim(), email: email.trim() },
-      });
-      if (!res.found) {
-        setResult(
-          "No submission matches that reference number and email. Check both and try again.",
-        );
-      } else {
-        const label =
-          res.status === "received"
-            ? "Received and awaiting review"
-            : res.status === "in review"
-              ? "In review"
-              : res.status;
-        setResult(`"${res.title}" — status: ${label}. Submitted ${res.submitted.slice(0, 10)}.`);
-      }
-    } catch {
-      setResult("The lookup could not run. Please try again.");
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  return (
-    <div className="sform">
-      <label htmlFor="tk-ref">Reference number</label>
-      <input
-        id="tk-ref"
-        type="text"
-        value={ref}
-        onChange={(e) => setRef(e.target.value)}
-        placeholder="MP-XXXXXX"
-      />
-      <label htmlFor="tk-email">Email used on the submission</label>
-      <input
-        id="tk-email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@example.com"
-      />
-      <button className="sbtn" onClick={() => void run()} disabled={busy}>
-        {busy ? "Checking..." : "Check Status"}
-      </button>
-      {result && <div className="fieldnote" style={{ marginTop: 14 }}>{result}</div>}
-    </div>
-  );
-}
-
 function Toolkit() {
   return (
     <SiteLayout>
@@ -456,14 +391,6 @@ function Toolkit() {
             <Link to="/toolkit/interior-layout" className="tklink">
               Open Interior Layout Studio →
             </Link>
-          </section>
-          <section className="tksec">
-            <h2>Submission Status</h2>
-            <p>
-              Submitted a manuscript to us? Enter the reference number from your confirmation
-              and the email you used.
-            </p>
-            <StatusChecker />
           </section>
         </div>
       </div>

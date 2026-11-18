@@ -41,11 +41,11 @@ function Submissions() {
             </p>
           </div>
           <div className="sform">
-            <h2 style={{ fontFamily: "inherit" }}>Already sent us a query?</h2>
+            <h2 style={{ fontFamily: "inherit" }}>Publishing your own book?</h2>
             <p style={{ color: "#4a453e" }}>
-              Queries we received before submissions closed are still being read. If you have a
-              reference number, you can check on yours any time on our{" "}
-              <Link to="/toolkit">Author Toolkit</Link> page.
+              Our free <Link to="/toolkit">Author Toolkit</Link> is still open to everyone. It can
+              check whether a title is already taken, work out the spine width and full wrap for a
+              paperback cover, and set the margins for your interior pages.
             </p>
           </div>
         </div>

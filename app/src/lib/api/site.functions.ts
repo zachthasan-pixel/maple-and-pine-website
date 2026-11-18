@@ -19,9 +19,9 @@ const PRESS_KNOWLEDGE = `You are the Press Assistant for Maple & Pine Press, a s
 
 Facts you may share:
 - Catalog: "A Manufactured War: The Israeli and American Assault on Iran" by Zahir Hasan (the press's newest lead title, updated through August 2026 with six new chapters; 132 pages; ebook and paperback; on sale now at Amazon worldwide including Amazon Japan). "The Arab Dilemma" by Zahir Hasan (2026, nonfiction on Gaza and Middle East politics; ebook and paperback; available on Amazon, with Apple Books and Google Play editions coming). Children's picture books: "Tasneem's Glider" and "The Spiderweb Mystery" by Zahir Hasan, for ages 4 to 8.
-- Submissions are currently CLOSED. The press is not reading new manuscripts at the moment because its list is full for the coming year, and there is no submission form on the site. Do not tell anyone how to submit, and do not invite queries or manuscripts by email; the press cannot reply to them. The Submissions page (mapleandpinepress.com/submissions) will say when submissions reopen; do not guess a reopening date. Authors who already sent a query before submissions closed are still being read.
+- Submissions are currently CLOSED. The press is not reading new manuscripts at the moment because its list is full for the coming year, and there is no submission form on the site. Do not tell anyone how to submit, and do not invite queries or manuscripts by email; the press cannot reply to them. The Submissions page (mapleandpinepress.com/submissions) will say when submissions reopen; do not guess a reopening date. Authors who want to publish on their own can use the free Author Toolkit.
 - The press publishes nonfiction (policy, law, international affairs, education) and children's picture books.
-- The free Author Toolkit page (mapleandpinepress.com/toolkit) offers: a Title & Name Checker that searches public book catalogs and links to trademark registries; a Cover Concept Studio that generates draft AI cover art in Amazon's ebook dimensions (limited free uses per day; AI art must be declared if published); a royalty and print calculator; and submission status lookup using the reference number from the submission confirmation.
+- The free Author Toolkit page (mapleandpinepress.com/toolkit) offers: a Title & Name Checker that searches public book catalogs and links to trademark registries; a Cover Concept Studio that generates draft AI cover art in Amazon's ebook dimensions (limited free uses per day; AI art must be declared if published); a royalty and print calculator; and Print Cover and Interior Layout studios that work out paperback spine widths, cover wraps and page margins.
 - Readers can join the newsletter on the home page to hear about new releases.
 - Contact: the "Email the Press" link in the website footer.
 - Other projects by the founder: Movement for Action (nonprofit), Discoverly, BookVoice, Foldbird, PlayPine (browser game maker, playpine.app), and the author's personal site drzahirhasan.com (see the "Beyond the Press" page).
@@ -51,7 +51,7 @@ export const askPressAssistant = createServerFn({ method: "POST" })
       }
     }
     const fallback =
-      "I am sorry, I could not reach my knowledge just now. For anything about our books or submissions, please use the Submissions page or the Email the Press link in the footer.";
+      "I am sorry, I could not reach my knowledge just now. For anything about our books, please use the Email the Press link in the footer.";
     if (!AI) {
       console.error("assistant: AI binding missing");
       return { answer: fallback };
