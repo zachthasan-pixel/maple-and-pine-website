@@ -6,8 +6,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 const GREETING: Msg = {
   role: "assistant",
-  content:
-    "Hello! I am the Press Assistant. Ask me about our books, where to buy them, or how to submit your manuscript.",
+  content: "Hello! I am the Press Assistant. Ask me about our books and where to buy them.",
 };
 
 export function PressAssistant() {

@@ -82,11 +82,11 @@ function Index() {
             </p>
           </div>
           <div>
-            <span className="num">Open</span>
-            <h3>To New Voices</h3>
+            <span className="num">Closed</span>
+            <h3>To Submissions</h3>
             <p>
-              We read unsolicited submissions. If you have a manuscript that deserves careful
-              publishing, we want to see it.
+              We are not reading new manuscripts at present. Our submissions page will say when that
+              changes.
             </p>
           </div>
         </div>
